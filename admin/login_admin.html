@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MANAGER</title>
+	<link rel="shortcut icon" href="../images/unam-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="../css/login.css"/>
+    
+</head>
+<body>
+<div class="container" id="container">
+	
+	<div class="form-container sign-in-container">
+		<form action="acceso-admin.php" method="POST">
+			<h1 class="head-registro" style="margin-bottom: 10px;">Manager</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>o registrate con tu usuario</span>
+			<input type="usuario" name="usuario" placeholder="Usuario" />
+			<input type="password" name="contraseña" placeholder="Contraseña" />
+			<a href="#">Olvidaste tu contraseña?</a>
+			<button>Iniciar sesión</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay" >
+			<div class="overlay-panel overlay-right" style="background-color: #1c3b71;">
+				<h1>Bienvenido admin!</h1>
+				<p>Ingrese sus datos para poder acceder</p>
+				<img src="../images/logo-cuauti.JPG" alt="" style="width: 100%; height: 50%; border-radius: 10px;">
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p>© Copyrights Facultad de Estudios Superiores Cuautitlán 2021.</p>
+</footer>
+<script src="../js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
