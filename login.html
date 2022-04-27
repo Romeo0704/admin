@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>REGISTRO USUARIOS</title>
+	<link rel="shortcut icon" href="images/unam-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="css/login.css"/>
+    
+</head>
+<body>
+	
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="registro.php" method="POST">
+			<h1 class="head-registro">Crear Cuenta</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>o use su correo electrónico para registrarse</span>
+            <input required type="text" name="nombre" placeholder="Nombre" />
+			<input required type="text" name="apellido" placeholder="Apedillos" />
+            <input required type="telefono" name="telefono" placeholder="Telefono" />
+			<span>Seleccione su Grado Academico</span>
+			<select required style="width: 100%;
+			margin: 15px 0;
+			min-height: 37px;
+			border: none;
+			background: #eee ;
+			font-size: 17px;
+			
+			padding: 0px 25px;"
+		
+		    id="grado_academico" name="grado_academico" >
+
+                                        <option selected></option>
+
+                                        <option>Secundaria</option>
+
+                                        <option>Preparatoria / Bachillerato</option>
+
+                                        <option>Carrera Tecnica</option>
+                                        
+                                        <option>Licenciatura</option>
+
+                                        <option>Maestria / Posgrado</option>
+                                        
+                                        </select>
+			<input required type="email" name="email" placeholder="Email" />
+			<!-- <input type="text" name="grado" placeholder="Grado Academico" /> -->
+			<input required type="password" name="contraseña" placeholder="Contraseña" />
+			<button class="ingresar">Registrar</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="acceso.php" method="POST">
+			<h1 class="head-registro" style="margin-bottom: 10px;">Iniciar Sesión</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>o registrate con tu correo</span>
+			<input type="email" name="email" placeholder="Email" />
+			<input type="password" name="password" placeholder="Contraseña" />
+			<a href="#">Olvidaste tu contraseña?</a>
+			<button>Iniciar sesión</button> 
+			<p>Si eres administrador ingresa <a href="admin/login_admin.html" style="color: blue"> aquí</a></p>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>¿Eres alumno de FESC?</h1>
+				<p>Registra tus datos de alumno</p>
+				<button><a class="btn ghost" id="signIn" href="registro-alumnos.html">Registrarse</a></button>
+				
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>¿No tienes una cuenta?</h1>
+				<p>Ingrese sus datos para poder acceder</p>
+				<button class="ghost" id="signUp">Registrarse</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<p>© Copyrights Facultad de Estudios Superiores Cuautitlán 2021.</p>
+</footer>
+<script src="js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>

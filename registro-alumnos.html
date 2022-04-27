@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO ALUMNOS</title>
+    <link rel="shortcut icon" href="images/unam-icon.png">
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <form action="registroalumnos.php" method="POST" class="register"> 
+                        <h3 class="register-heading">Registro Alumnos</h3>
+                        <div class="row register-form">
+                            <div class="form-group col-6">
+                                <label for="nombre" class="form-label" style="color: #ffffff" >Nombre</label>
+                                <input type="text" class="form-control" name="nombre"  placeholder="Nombre(s) *" required />
+                            </div> 
+                            <div class="form-group col-6">
+                                <label for="apellido" class="form-label" style="color: #ffffff">Apellido</label>
+                                <input type="text" class="form-control" name="apellido"  placeholder="Apellidos *" required/>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="correo" class="form-label" style="color: #ffffff">Correo eléctronico</label>
+                                <input type="correo" class="form-control" name="correo"  placeholder="correo *" required />
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="contraseña" class="form-label" style="color: #ffffff">Contraseña</label>
+                                <input type="password" class="form-control" name="contraseña"  placeholder="Contraseña *" required />
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="correo" class="form-label" style="color: #ffffff">N° cuenta</label>
+                                <input type="text" class="form-control" name="cuenta"  placeholder="N° cuenta *" required/>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="celular" class="form-label" style="color: #ffffff">Celular</label>
+                                <input type="celular" class="form-control" name="celular"  placeholder="00-0000-0000 *" required />
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="telcasa" class="form-label" style="color: #ffffff">Telefono</label>
+                                <input type="telcasa" class="form-control" name="telcasa"  placeholder="0000-0000  *" required />
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="carrera" class="form-label" style="color: #ffffff">Carrera</label>
+                                <select class="form-control" name="carrera" id="carrera" required>
+                                    <option selected>Selecciona tu carrera</option>
+                                    <option value="informática">Licenciatura en Informática</option>
+                                    <option value="contaduría">Licenciatura en Contaduría</option>
+                                    <option value="administración">Licenciatura en Administración</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="semestre" class="form-label" style="color: #ffffff">Semestre</label>
+                                <select class="form-control" name="semestre" id="semestre" required>
+                                    <option selected>Selecciona tu semestre</option>
+                                    <option value="semestre 1">Semestre 1</option>
+                                    <option value="semestre 2">Semestre 2</option>
+                                    <option value="semestre 3">Semestre 3</option>
+                                    <option value="semestre 4">Semestre 4</option>
+                                    <option value="semestre 5">Semestre 5</option>
+                                    <option value="semestre 6">Semestre 6</option>
+                                    <option value="semestre 7">Semestre 7</option>
+                                    <option value="semestre 8">Semestre 8</option>
+                                    <option value="semestre 9">Semestre 9</option>
+                                </select>
+                            </div>
+                            <div class="full field">
+                                <div class="ingresar center"><button>Registrar</button></div>
+                            </div>
+                         
+                        </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>				                            
+    
+</body>
+</html>
