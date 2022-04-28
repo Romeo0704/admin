@@ -1,24 +1,22 @@
 <?php
 require_once "../conexion.php";
 
-if(isset($_POST['matricula']) && isset($_POST['nombre']) && isset($_POST['correo']) && isset($_POST['telefono']) ){
+if(isset($_POST['id_area']) && isset($_POST['areas']) ){
 
 
-    $conexion->query("insert into profesores (matricula_profesor,nombre,correo,telefono)
+    $conexion->query("insert into areas (id_area,areas)
            values (
-                  '".$_POST['matricula']."',
-                  '".$_POST['nombre']."',
-                  '".$_POST['correo']."',
-                  '".$_POST['telefono']."'
+                  '".$_POST['id_area']."',
+                  '".$_POST['areas']."'
                   
               )
             ")or die($conexion->error);
 
-            header("Location: profesores.php?success");
+            header("Location: areas.php?success");
 
 
 }else{
-    header("Location: profesores.php?error=Favor de llenar todos los campos");
+    header("Location: areas.php?error=Favor de llenar todos los campos");
 }
 
 ?>

@@ -2,7 +2,7 @@
 session_start();
 require_once "../conexion.php";
 
-$resultado = $conexion->query("SELECT * from profesores")or die ($conexion->error);
+$resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
 
 ?>
 
@@ -11,7 +11,7 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Manager</title>
+  <title>Administrador</title>
   <link rel="shortcut icon" href="../images/afac_logo.png">
 
   <!-- Google Font: Source Sans Pro -->
@@ -23,6 +23,7 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
   <!-- Theme style -->
   <link rel="stylesheet" href="./layouts/css/adminlte.min.css">
   
+ 
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -36,11 +37,11 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-2">Registro de Profesores</h1>
+            <h1 class="m-2">Registro de Área de auditoría</h1>
           </div><!-- /.col -->
           <div class="col-sm-6 text-right">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa fa-plus mr-2"></i>Registrar Profesor</button>
+          <i class="fa fa-plus mr-2"></i>Registrar Área de auditoría</button>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -54,8 +55,8 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
           if(isset($_GET['error'])){
         ?>
         <div class="alert alert-danger" role="alert">
-          <?php echo $_GET['error']; ?>
-          <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+         <?php echo $_GET['error']; ?>
+         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php  } ?>
 
@@ -63,59 +64,51 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
           if(isset($_GET['success'])){
         ?>
         <div class="alert alert-success" role="alert">
-          Se ha insertado correctamente
-        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+           Se ha insertado correctamente
+         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php  } ?>
 
         
         <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Cursos Iniciación al Cómputo Semestre 2021-2</h3>
+                <h3 class="card-title">Área de auditoría</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <td>Matricula Profesor</td>
-                        <td>Nombre</td>
-                        <td>Correo eléctornico</td>
-                        <td>Teléfono</td>
+                        <td>Id Area</td>
+                        <td>Área de auditoría:</td>
                         <td>Editar</td>
                         <td>Eliminar</td>
                       </tr>
                     </thead>
                     <tbody>
-                        <?php
-                          while($fila= mysqli_fetch_array($resultado)){
-                        ?>
+                         <?php
+                           while($fila= mysqli_fetch_array($resultado)){
+                         ?>
                       <tr>
-                      <td><?php echo $fila['matricula_profesor'];?></td>
-                      <td><?php echo $fila['nombre'];?></td>
-                      <td><?php echo $fila['correo'];?></td>
-                      <td><?php echo $fila['telefono'];?></td>
-                  
+                       <td><?php echo $fila['id_area'];?></td>
+                       <td><?php echo $fila['areas'];?></td>
+                       
+                       <td><button class="btn btn-success btnEditar" 
+                       data-id="<?php echo $fila['id_area'];?>"
+                       data-area="<?php echo $fila['areas'];?>"
+                       data-toggle="modal" data-target="#modalEditar">
+                       <i class="fa fa-edit"></i></button></td>
           
-                      <td><button class="btn btn-success btnEditar" 
-                      data-id="<?php echo $fila['matricula_profesor'];?>"
-                      data-matricula="<?php echo $fila['matricula_profesor'];?>"
-                      data-nombre="<?php echo $fila['nombre'];?>"
-                      data-correo="<?php echo $fila['correo'];?>"
-                      data-telefono="<?php echo $fila['telefono'];?>"
-                      data-toggle="modal" data-target="#modalEditar">
-                      <i class="fa fa-edit"></i></button></td>
-          
-                      <td><button class="btn btn-danger btnEliminar" 
-                        data-id="<?php echo $fila['matricula_profesor'];?>"
-                        data-toggle="modal" data-target="#modalEliminar">
-                        <i class="fa fa-trash"></i></button></td>
+                       <td><button class="btn btn-danger btnEliminar" 
+                       data-id="<?php echo $fila['id_area'];?>"
+                       data-toggle="modal" data-target="#modalEliminar">
+                       <i class="fa fa-trash"></i></button></td>
           
                       </tr>
-                        <?php } ?>
+                         <?php } ?>
           
                     </tbody>
-                    
+               
                 </table>
               </div>
               <!-- /.card-body -->
@@ -132,27 +125,19 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
     <div class="modal-content">
       <form action="./insertarprofesor.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrar Profesor</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Área de auditoría</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="matricula" >Matricula Profesor</label> 
-          <input type="text" name="matricula" placeholder="matricula" id="matricula" class="form-control" required> 
+          <label for="id_area" >Id Area</label> 
+          <input type="text" name="id_area" placeholder="id_area" id="id_area" class="form-control" required> 
         </div>
         <div class="form-group">
-          <label for="nombre" >Nombre</label> 
-          <input type="text" name="nombre" placeholder="nombre" id="nombre" class="form-control" required> 
-        </div>
-        <div class="form-group">
-          <label for="correo" >Correo eléctornico</label> 
-          <input type="text" name="correo" placeholder="correo eléctronico" id="correo" class="form-control" required> 
-        </div>
-        <div class="form-group">
-          <label for="telefono" >Teléfono</label> 
-          <input type="text" name="telefono" placeholder="telefono" id="telefono" class="form-control" required> 
+          <label for="areas" >Área de auditoría</label> 
+          <input type="text" name="areas" placeholder="areas" id="areas" class="form-control" required> 
         </div>
       </div>
       <div class="modal-footer">
