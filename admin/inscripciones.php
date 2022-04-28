@@ -13,7 +13,7 @@ $resultado = $conexion->query("select* from inscripcion")or die ($conexion->erro
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manager</title>
-  <link rel="shortcut icon" href="../images/unam-icon.png">
+  <link rel="shortcut icon" href="../images/afac_logo.png">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

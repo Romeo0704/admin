@@ -12,7 +12,7 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Manager</title>
-  <link rel="shortcut icon" href="../images/unam-icon.png">
+  <link rel="shortcut icon" href="../images/afac_logo.png">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -23,7 +23,6 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
   <!-- Theme style -->
   <link rel="stylesheet" href="./layouts/css/adminlte.min.css">
   
- 
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -55,8 +54,8 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
           if(isset($_GET['error'])){
         ?>
         <div class="alert alert-danger" role="alert">
-         <?php echo $_GET['error']; ?>
-         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+          <?php echo $_GET['error']; ?>
+          <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php  } ?>
 
@@ -64,8 +63,8 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
           if(isset($_GET['success'])){
         ?>
         <div class="alert alert-success" role="alert">
-           Se ha insertado correctamente
-         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+          Se ha insertado correctamente
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php  } ?>
 
@@ -88,35 +87,35 @@ $resultado = $conexion->query("SELECT * from profesores")or die ($conexion->erro
                       </tr>
                     </thead>
                     <tbody>
-                         <?php
-                           while($fila= mysqli_fetch_array($resultado)){
-                         ?>
+                        <?php
+                          while($fila= mysqli_fetch_array($resultado)){
+                        ?>
                       <tr>
-                       <td><?php echo $fila['matricula_profesor'];?></td>
-                       <td><?php echo $fila['nombre'];?></td>
-                       <td><?php echo $fila['correo'];?></td>
-                       <td><?php echo $fila['telefono'];?></td>
+                      <td><?php echo $fila['matricula_profesor'];?></td>
+                      <td><?php echo $fila['nombre'];?></td>
+                      <td><?php echo $fila['correo'];?></td>
+                      <td><?php echo $fila['telefono'];?></td>
                   
           
-                       <td><button class="btn btn-success btnEditar" 
-                       data-id="<?php echo $fila['matricula_profesor'];?>"
-                       data-matricula="<?php echo $fila['matricula_profesor'];?>"
-                       data-nombre="<?php echo $fila['nombre'];?>"
-                       data-correo="<?php echo $fila['correo'];?>"
-                       data-telefono="<?php echo $fila['telefono'];?>"
-                       data-toggle="modal" data-target="#modalEditar">
-                       <i class="fa fa-edit"></i></button></td>
+                      <td><button class="btn btn-success btnEditar" 
+                      data-id="<?php echo $fila['matricula_profesor'];?>"
+                      data-matricula="<?php echo $fila['matricula_profesor'];?>"
+                      data-nombre="<?php echo $fila['nombre'];?>"
+                      data-correo="<?php echo $fila['correo'];?>"
+                      data-telefono="<?php echo $fila['telefono'];?>"
+                      data-toggle="modal" data-target="#modalEditar">
+                      <i class="fa fa-edit"></i></button></td>
           
-                       <td><button class="btn btn-danger btnEliminar" 
-                       data-id="<?php echo $fila['matricula_profesor'];?>"
-                       data-toggle="modal" data-target="#modalEliminar">
-                       <i class="fa fa-trash"></i></button></td>
+                      <td><button class="btn btn-danger btnEliminar" 
+                        data-id="<?php echo $fila['matricula_profesor'];?>"
+                        data-toggle="modal" data-target="#modalEliminar">
+                        <i class="fa fa-trash"></i></button></td>
           
                       </tr>
-                         <?php } ?>
+                        <?php } ?>
           
                     </tbody>
-               
+                    
                 </table>
               </div>
               <!-- /.card-body -->

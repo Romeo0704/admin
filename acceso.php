@@ -3,7 +3,7 @@ require 'valores_sesion.php';
 
 require_once "conexion.php";
 
-$email = $_POST['email'];
+$email = $_POST['empleado'];
 $contraseña = $_POST['password'];
 
 $sql ="SELECT correo FROM alumnos WHERE correo='$email' and contraseña='$contraseña' ";

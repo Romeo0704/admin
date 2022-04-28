@@ -348,7 +348,7 @@ button:focus {
     z-index: 20;
     background-position: left;
     background-repeat: no-repeat;
-    background-color: #fff;
+    background-color: rgb(226, 222, 222);
     background-size: auto 100%;
     width: 90%;
     margin: 0 5%;
@@ -377,7 +377,7 @@ a.navbar-brand img {
 .top-header .navbar .navbar-collapse ul li a:hover,
 .top-header .navbar .navbar-collapse ul li a:focus {
 	background: transparent;
-	color: #d4a81e;
+	color: #1e5bdd;
 }
 
 .search_icon.nav-link img {
@@ -398,7 +398,7 @@ a.navbar-brand img {
     animation-fill-mode: both;
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
-    background: #fff;
+    background: rgb(255, 255, 255);
     z-index: 20;
     margin: 0;
 }
@@ -625,6 +625,7 @@ a.navbar-brand img {
 
 .slide_text h3 span {
     font-size: 40px;
+	color: #1e21d4;
 }
 
 .slide_text h4 {
@@ -649,7 +650,7 @@ a.navbar-brand img {
 .contact_bt {
     width: 180px;
     height: 50px;
-    background: #d4a81e;
+    background: #1e21d4;
     color: #fff;
     float: left;
     line-height: 50px;
