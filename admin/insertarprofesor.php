@@ -5,14 +5,13 @@ if(isset($_POST['id_area']) && isset($_POST['areas']) ){
 
 
     $conexion->query("insert into areas (id_area,areas)
-           values (
-                  '".$_POST['id_area']."',
-                  '".$_POST['areas']."'
-                  
-              )
+        values (
+            '".$_POST['id_area']."',
+            '".$_POST['areas']."'
+            )
             ")or die($conexion->error);
 
-            header("Location: areas.php?success");
+            header("Location: profesores.php?success");
 
 
 }else{
