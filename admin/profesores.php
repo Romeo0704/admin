@@ -23,6 +23,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
   <!-- Theme style -->
   <link rel="stylesheet" href="./layouts/css/adminlte.min.css">
   
+ 
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -54,8 +55,8 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
           if(isset($_GET['error'])){
         ?>
         <div class="alert alert-danger" role="alert">
-          <?php echo $_GET['error']; ?>
-          <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+         <?php echo $_GET['error']; ?>
+         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php  } ?>
 
@@ -63,8 +64,8 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
           if(isset($_GET['success'])){
         ?>
         <div class="alert alert-success" role="alert">
-            Se ha insertado correctamente
-          <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+           Se ha insertado correctamente
+         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php  } ?>
 
@@ -85,29 +86,29 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
                       </tr>
                     </thead>
                     <tbody>
-                          <?php
-                            while($fila= mysqli_fetch_array($resultado)){
-                          ?>
+                         <?php
+                           while($fila= mysqli_fetch_array($resultado)){
+                         ?>
                       <tr>
-                        <td><?php echo $fila['id_area'];?></td>
-                        <td><?php echo $fila['areas'];?></td>
-
-                        <td><button class="btn btn-success btnEditar" 
-                        data-id="<?php echo $fila['id_area'];?>"
-                        data-area="<?php echo $fila['areas'];?>"
-                        data-toggle="modal" data-target="#modalEditar">
-                        <i class="fa fa-edit"></i></button></td>
+                       <td><?php echo $fila['id_area'];?></td>
+                       <td><?php echo $fila['areas'];?></td>
+                       
+                       <td><button class="btn btn-success btnEditar" 
+                       data-id="<?php echo $fila['id_area'];?>"
+                       data-matricula="<?php echo $fila['areas'];?>"
+                       data-toggle="modal" data-target="#modalEditar">
+                       <i class="fa fa-edit"></i></button></td>
           
-                        <td><button class="btn btn-danger btnEliminar" 
-                        data-id="<?php echo $fila['id_area'];?>"
-                        data-toggle="modal" data-target="#modalEliminar">
-                        <i class="fa fa-trash"></i></button></td>
+                       <td><button class="btn btn-danger btnEliminar" 
+                       data-id="<?php echo $fila['id_area'];?>"
+                       data-toggle="modal" data-target="#modalEliminar">
+                       <i class="fa fa-trash"></i></button></td>
           
                       </tr>
-                          <?php } ?>
+                         <?php } ?>
           
                     </tbody>
-
+               
                 </table>
               </div>
               <!-- /.card-body -->
@@ -122,7 +123,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
-      <form action="insertarprofesor.php" method="POST" enctype="multipart/form-data" > 
+      <form action="./insertarprofesor.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Registrar Área de auditoría</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
@@ -153,13 +154,13 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEliminarLabel">Eliminar Profesor</h5>
+        <h5 class="modal-title" id="modalEliminarLabel">Eliminar Área de auditoría</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ¿Desea eliminar a este profesor?
+        ¿Desea eliminar a esta Área de auditoría?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

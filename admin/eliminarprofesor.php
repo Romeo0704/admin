@@ -3,6 +3,6 @@ require_once "../conexion.php";
 
 
 
-$conexion->query("delete from profesores where matricula_profesor=".$_POST['id']);
+$conexion->query("delete from areas where id_area=".$_POST['id']);
 echo 'Se elimino correctamente';
 ?>
