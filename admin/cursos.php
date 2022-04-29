@@ -2,8 +2,9 @@
 session_start();
 require_once "../conexion.php";
 
-$resultado = $conexion->query("select pqs.*, pqs.num_pq as pregunta
-from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error);
+/*$resultado = $conexion->query("select pqs.*, pqs.num_pq as pregunta
+from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error);*/
+$resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 
 ?>
 
@@ -96,7 +97,7 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
                           ?>
                       <tr>
                         <td><?php echo $fila['id_pq'];?></td>
-                        <td><?php echo $fila['numpq'];?></td>
+                        <td><?php echo $fila['num_pq'];?></td>
                         <td><?php echo $fila['area'];?></td>
                         <td><?php echo $fila['elemento'];?></td>
                         <td><?php echo $fila['pregunta'];?></td>
@@ -105,7 +106,7 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
 
                         <td><button class="btn btn-success btnEditar" 
                         data-id="<?php echo $fila['id_pq'];?>"
-                        data-nombre="<?php echo $fila['numpq'];?>"
+                        data-nombre="<?php echo $fila['num_pq'];?>"
                         data-costo="<?php echo $fila['area'];?>"
                         data-requisitos="<?php echo $fila['elemento'];?>"
                         data-requisitos="<?php echo $fila['pregunta'];?>"
@@ -115,7 +116,7 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
                         <i class="fa fa-edit"></i></button></td>
           
                         <td><button class="btn btn-danger btnEliminar" 
-                        data-id="<?php echo $fila['id_curso'];?>"
+                        data-id="<?php echo $fila['id_pq'];?>"
                         data-toggle="modal" data-target="#modalEliminar">
                         <i class="fa fa-trash"></i></button></td>
           
@@ -133,7 +134,7 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
     </section>
     <!-- /.content -->
   </div>
-  <!-- Modal -->
+  <!-- Modal Agregar-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
@@ -145,9 +146,14 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
         </button>
       </div>
       <div class="modal-body">
+      <div class="modal-body">
         <div class="form-group">
-          <label for="nombre" >Número de PQ</label> 
-          <input type="text" name="numpq" placeholder="PQ" id="numpq" class="form-control" required> 
+          <label for="id_pq" >Id PQ</label> 
+          <input type="text" name="id_pq" placeholder="Id PQ" id="id_pq" class="form-control" required> 
+        </div>
+        <div class="form-group">
+          <label for="num_pq" >Número de PQ</label> 
+          <input type="text" name="num_pq" placeholder="PQ" id="num_pq" class="form-control" required> 
         </div>
         <!--<div class="row">
         <div class="form-group col-6">
@@ -155,8 +161,8 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
           <input type="number" name="costo" placeholder="costo" id="costo" class="form-control" required> 
         </div>-->
         <div class="form-group">
-          <label for="areas" >Área de auditoría</label> 
-          <select name="areas" id="areas" class="form-control" required>
+          <label for="area" >Área de auditoría</label> 
+          <select name="area" id="area" class="form-control" required>
             <?php
               $res= $conexion->query("select * from  areas");
               while($fila=mysqli_fetch_array($res)){
@@ -166,7 +172,7 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
           </select>
         </div>
         <div class="form-group">
-          <label for="area" >Elemento critico</label> 
+          <label for="elemento" >Elemento critico</label> 
           <select name="elemento" id="elemento" class="form-control" required>
             <?php
               $res= $conexion->query("select * from  elemento");
@@ -177,15 +183,15 @@ from altas inner join pqs on altas.num_pq = pqs.num_pq")or die ($conexion->error
           </select>
         </div>
         <div class="form-group">
-          <label for="nombre" >Pregunta de protócolo (PQ)</label> 
+          <label for="pregunta" >Pregunta de protócolo (PQ)</label> 
           <input type="text" name="pregunta" placeholder="Pregunta de protócolo" id="pregunta" class="form-control" required> 
         </div>
         <div class="form-group">
-          <label for="nombre" >Orientación para el examen de pruebas</label> 
+          <label for="orientacion" >Orientación para el examen de pruebas</label> 
           <input type="text" name="orientacion" placeholder="Orientación para el examen de pruebas" id="orientacion" class="form-control" required> 
         </div>
         <div class="form-group">
-          <label for="nombre" >Documentos de referencia</label> 
+          <label for="documentos" >Documentos de referencia</label> 
           <input type="text" name="documentos" placeholder="Documentos de referencia" id="documentos" class="form-control" required> 
         </div>
 
