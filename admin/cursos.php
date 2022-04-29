@@ -166,7 +166,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
             <?php
               $res= $conexion->query("select * from  areas");
               while($fila=mysqli_fetch_array($res)){
-                echo '<option value="'.$fila['id_area'].'">'.$fila['areas'].'</option>';
+                echo '<option value="'.$fila['areas'].'">'.$fila['areas'].'</option>';
               }
             ?>
           </select>
@@ -177,7 +177,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
             <?php
               $res= $conexion->query("select * from  elemento");
               while($fila=mysqli_fetch_array($res)){
-                echo '<option value="'.$fila['id_elemento'].'">'.$fila['elemento'].'</option>';
+                echo '<option value="'.$fila['elemento'].'">'.$fila['elemento'].'</option>';
               }
             ?>
           </select>
@@ -254,7 +254,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
               <?php
                 $res= $conexion->query("select * from  areas");
                 while($fila=mysqli_fetch_array($res)){
-                  echo '<option value="'.$fila['id_areas'].'">'.$fila['areas'].'</option>';
+                  echo '<option value="'.$fila['areas'].'">'.$fila['areas'].'</option>';
                 }
               ?>
           </select>
@@ -265,7 +265,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
               <?php
                 $res= $conexion->query("select * from  elemento");
                 while($fila=mysqli_fetch_array($res)){
-                  echo '<option value="'.$fila['id_elemento'].'">'.$fila['elemento'].'</option>';
+                  echo '<option value="'.$fila['elemento'].'">'.$fila['elemento'].'</option>';
                 }
               ?>
           </select>
