@@ -208,7 +208,7 @@ include_once ("validar_sesion1.php");
             </a>
           </li>
           <li class="nav-item">
-            <a href="./profesores.php" class="nav-link">
+            <a href="./areauditoria.php" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 Área de auditoría
