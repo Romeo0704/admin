@@ -211,11 +211,22 @@ include_once ("validar_sesion1.php");
             <a href="./areauditoria.php" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
-                Área de auditoría
+                Áreas de auditoría
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="./elemento.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Elemento crítico
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+
+
           <li class="nav-header">EXTRAS</li>
           <li class="nav-item">
             <a href="pages/calendar.html" class="nav-link">
