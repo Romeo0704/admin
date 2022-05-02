@@ -106,6 +106,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 
                         <td><button class="btn btn-success btnEditar" 
                         data-id="<?php echo $fila['id_pq'];?>"
+                        data-id_pq="<?php echo $fila['id_pq'];?>"
                         data-num_pq="<?php echo $fila['num_pq'];?>"
                         data-area="<?php echo $fila['area'];?>"
                         data-elemento="<?php echo $fila['elemento'];?>"
@@ -245,6 +246,10 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
       <div class="modal-body">
         <input type="hidden" id="idEdit" name="id" class="form-control">
         <div class="form-group">
+          <label for="id_pq" >ID de PQ</label> 
+          <input type="text" name="id_pq" placeholder="ID de PQ" id="id_pq1" class="form-control" required> 
+        </div>
+        <div class="form-group">
           <label for="num_pq" >Número de PQ</label> 
           <input type="text" name="num_pq" placeholder="Número de PQ" id="num_pq1" class="form-control" required> 
         </div>
@@ -276,11 +281,11 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
         </div>
         <div class="form-group">
           <label for="orientacion" >Orientación para el examen de pruebas</label> 
-          <input type="text" name="orientacion" placeholder="Orientación para el examen de pruebas" id="orientacion1" class="form-control" required> 
+          <input type="text" name="orientacion" placeholder="orientacion" id="orientacion1" class="form-control" required> 
         </div>
         <div class="form-group">
           <label for="documentos" >Documentos de referencia</label> 
-          <input type="text" name="documentos" placeholder="Documentos de referencia" id="documentos1" class="form-control" required> 
+          <input type="text" name="documentos" placeholder="documentos" id="documentos1" class="form-control" required> 
         </div>
       </div>
       <div class="modal-footer">
@@ -323,19 +328,27 @@ $(document).ready(function(){
     });
   });
   $(".btnEditar").click(function(){
+
     idEditar=$(this).data('id');
+    var id_pq=$(this).data('id_pq');
     var num_pq=$(this).data('num_pq');
     var area=$(this).data('area');
     var elemento=$(this).data('elemento');
     var pregunta=$(this).data('pregunta');
     var orientacion=$(this).data('orientacion');
     var documentos=$(this).data('documentos');
+
+    // alert(orientacion);
+
+
+    $("#id_pq1").val(id_pq);
     $("#num_pq1").val(num_pq);
     $("#area1").val(area);
     $("#elemento1").val(elemento);
     $("#pregunta1").val(pregunta);
-    $("#orientacion1").val(orietacion);
+    $("#orientacion1").val(orientacion);
     $("#documentos1").val(documentos);
+    // alert(idEditar);
 
 });
 
