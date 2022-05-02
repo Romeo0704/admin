@@ -247,7 +247,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
         <input type="hidden" id="idEdit" name="id" class="form-control">
         <div class="form-group">
           <label for="id_pq" >ID de PQ</label> 
-          <input type="text" name="id_pq" placeholder="ID de PQ" id="id_pq1" class="form-control" required> 
+          <input type="text" name="id_pq" placeholder="ID de PQ" id="id_pq1" readonly="readonly" class="form-control" required> 
         </div>
         <div class="form-group">
           <label for="num_pq" >Número de PQ</label> 
@@ -348,6 +348,7 @@ $(document).ready(function(){
     $("#pregunta1").val(pregunta);
     $("#orientacion1").val(orientacion);
     $("#documentos1").val(documentos);
+    $("#idEdit").val(idEditar);
     // alert(idEditar);
 
 });
