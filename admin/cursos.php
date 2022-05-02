@@ -106,12 +106,12 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 
                         <td><button class="btn btn-success btnEditar" 
                         data-id="<?php echo $fila['id_pq'];?>"
-                        data-nombre="<?php echo $fila['num_pq'];?>"
-                        data-costo="<?php echo $fila['area'];?>"
-                        data-requisitos="<?php echo $fila['elemento'];?>"
-                        data-requisitos="<?php echo $fila['pregunta'];?>"
-                        data-requisitos="<?php echo $fila['orientacion'];?>"
-                        data-requisitos="<?php echo $fila['documentos'];?>"
+                        data-num_pq="<?php echo $fila['num_pq'];?>"
+                        data-area="<?php echo $fila['area'];?>"
+                        data-elemento="<?php echo $fila['elemento'];?>"
+                        data-pregunta="<?php echo $fila['pregunta'];?>"
+                        data-orientacion="<?php echo $fila['orientacion'];?>"
+                        data-documentos="<?php echo $fila['documentos'];?>"
                         data-toggle="modal" data-target="#modalEditar">
                         <i class="fa fa-edit"></i></button></td>
           
@@ -249,8 +249,8 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
           <input type="text" name="num_pq" placeholder="Número de PQ" id="num_pq1" class="form-control" required> 
         </div>
         <div class="form-group">
-          <label for="areas" >Área</label> 
-          <select name="areas" id="areas1" class="form-control" required>
+          <label for="area" >Área</label> 
+          <select name="area" id="area1" class="form-control" required>
               <?php
                 $res= $conexion->query("select * from  areas");
                 while($fila=mysqli_fetch_array($res)){
@@ -269,6 +269,10 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                 }
               ?>
           </select>
+        </div>
+        <div class="form-group">
+          <label for="pregunta" >Pregunta de protócolo (PQ)</label> 
+          <input type="text" name="pregunta" placeholder="pregunta" id="pregunta1" class="form-control" required> 
         </div>
         <div class="form-group">
           <label for="orientacion" >Orientación para el examen de pruebas</label> 
