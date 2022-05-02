@@ -176,7 +176,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
     <div class="modal-content">
       <form action="./editarareauditoria.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEditarLabel">Actualizar datos Profesor</h5>
+        <h5 class="modal-title" id="modalEditarLabel">Actualizar datos área</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>

@@ -245,11 +245,11 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
       <div class="modal-body">
         <input type="hidden" id="idEdit" name="id" class="form-control">
         <div class="form-group">
-          <label for="numpq" >Número de PQ</label> 
-          <input type="text" name="numpq" placeholder="Número de PQ" id="numpq1" class="form-control" required> 
+          <label for="num_pq" >Número de PQ</label> 
+          <input type="text" name="num_pq" placeholder="Número de PQ" id="num_pq1" class="form-control" required> 
         </div>
         <div class="form-group">
-          <label for="areas" >Profesor</label> 
+          <label for="areas" >Área</label> 
           <select name="areas" id="areas1" class="form-control" required>
               <?php
                 $res= $conexion->query("select * from  areas");
@@ -260,8 +260,8 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
           </select>
         </div>
         <div class="form-group">
-          <label for="elementor" >Elemento critico</label> 
-          <select name="elemento" id="elementor1" class="form-control" required>
+          <label for="elemento" >Elemento critico</label> 
+          <select name="elemento" id="elemento1" class="form-control" required>
               <?php
                 $res= $conexion->query("select * from  elemento");
                 while($fila=mysqli_fetch_array($res)){
@@ -269,16 +269,14 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                 }
               ?>
           </select>
-        </div>areas
-        <div class="form-group col-6">
+        </div>
+        <div class="form-group">
           <label for="orientacion" >Orientación para el examen de pruebas</label> 
-          <input type="text" name="orientacion" placeholder="Horientación para el examen de pruebas" id="horientacion1" class="form-control" required> 
+          <input type="text" name="orientacion" placeholder="Orientación para el examen de pruebas" id="orientacion1" class="form-control" required> 
         </div>
-        </div>
-        <div class="form-group col-6">
+        <div class="form-group">
           <label for="documentos" >Documentos de referencia</label> 
           <input type="text" name="documentos" placeholder="Documentos de referencia" id="documentos1" class="form-control" required> 
-        </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -332,7 +330,7 @@ $(document).ready(function(){
     $("#area1").val(area);
     $("#elemento1").val(elemento);
     $("#pregunta1").val(pregunta);
-    $("#orientacion1").val(orietación);
+    $("#orientacion1").val(orietacion);
     $("#documentos1").val(documentos);
 
 });
