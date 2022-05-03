@@ -205,7 +205,7 @@ include_once ("validar_sesion1.php");
             </a>
           </li>
           <li class="nav-item">
-            <a href="./elemento.php" class="nav-link">
+            <a href="./usuario.php" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 Usuarios

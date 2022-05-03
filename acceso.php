@@ -3,14 +3,14 @@ require 'valores_sesion.php';
 
 require_once "conexion.php";
 
-$empleado = $_POST['empleado'];
+$num_cuenta = $_POST['num_cuenta'];
 $contraseña = $_POST['password'];
 
-$sql ="SELECT empleado FROM empleados WHERE empleado='$empleado' and contraseña='$contraseña' ";
+$sql ="SELECT num_cuenta FROM usuarios WHERE num_cuenta='$num_cuenta' and contraseña='$contraseña' ";
 $validar_login= mysqli_query($conexion,$sql);
 
 if(mysqli_num_rows($validar_login) > 0){
-    $_SESSION['usuario'] = $empleado;
+    $_SESSION['usuario'] = $num_cuenta;
     header('location: iniciopq.php');
     mysqli_close($conexion);
 

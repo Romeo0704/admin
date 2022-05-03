@@ -139,7 +139,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
-      <form action="./insertarcurso.php" method="POST" enctype="multipart/form-data" > 
+      <form action="./insertarpq.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Dar de alta PQ</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
@@ -236,7 +236,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
-      <form action="./editarcurso.php" method="POST" enctype="multipart/form-data" > 
+      <form action="./editarpq.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
         <h5 class="modal-title" id="modalEditarLabel">Actualizar PQ</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
