@@ -3,21 +3,21 @@ require 'valores_sesion.php';
 
 require_once "conexion.php";
 
-$email = $_POST['empleado'];
+$empleado = $_POST['empleado'];
 $contraseña = $_POST['password'];
 
-$sql ="SELECT correo FROM alumnos WHERE correo='$email' and contraseña='$contraseña' ";
+$sql ="SELECT empleado FROM empleados WHERE empleado='$empleado' and contraseña='$contraseña' ";
 $validar_login= mysqli_query($conexion,$sql);
 
 if(mysqli_num_rows($validar_login) > 0){
-    $_SESSION['usuario'] = $email;
+    $_SESSION['usuario'] = $empleado;
     header('location: iniciopq.php');
     mysqli_close($conexion);
 
 }else{
     echo '
     <script> 
-      alert("Email y/o contraseña incorrectos, verifique sus datos");
+      alert("Número y/o contraseña incorrectos, verifique sus datos");
       window.location = "login.html";
     </script>
     ';

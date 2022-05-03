@@ -3,14 +3,14 @@ require_once "conexion.php";
 
 $nombre = $_POST['nombre'];
 $empleado = $_POST['empleado'];
-$contraseña = $_POST['contraseña'];
 $apellido = $_POST['apellido'];
+$contraseña = $_POST['contraseña'];
 
 // se tiene que ir el insert a la tabla alumnos
 /* $query = "INSERT INTO usuarios (nombre,telefono,email,contraseña) VALUES ('$nombre','$telefono','$email','$contraseña')"; */
-$query = "INSERT INTO alumnos (nombre,empleado,contraseña,apellido) VALUES ('$nombre','$empleado','$contraseña','$apellido')";
+$query = "INSERT INTO empleados (nombre,apellido,empleado,contraseña) VALUES ('$nombre','$apellido','$empleado','$contraseña')";
 //verificar que el correo no se repita en la BD
-$verificar_empleado= mysqli_query($conexion, "SELECT * FROM alumnos WHERE empleado='$empleado'");
+$verificar_empleado= mysqli_query($conexion, "SELECT * FROM empleados WHERE empleado='$empleado'");
 
 if(mysqli_num_rows($verificar_empleado) > 0){
     echo '
