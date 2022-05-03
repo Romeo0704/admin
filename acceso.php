@@ -11,7 +11,7 @@ $validar_login= mysqli_query($conexion,$sql);
 
 if(mysqli_num_rows($validar_login) > 0){
     $_SESSION['usuario'] = $email;
-    header('location: cursos1.php');
+    header('location: iniciopq.php');
     mysqli_close($conexion);
 
 }else{

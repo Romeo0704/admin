@@ -24,7 +24,7 @@ session_start();
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-     
+
     <!-- Site Icons -->
     <link rel="shortcut icon" href="#" type="image/x-icon" />
     <link rel="apple-touch-icon" href="#" />
@@ -45,16 +45,15 @@ session_start();
 
 <body id="inner_page" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
-   
-     <!-- LOADER -->
-     <div id="preloader">
+    <!-- LOADER -->
+    <div id="preloader">
         <div class="loader">
             <img src="images/loa2.gif" alt="#" />
         </div>
     </div>
     <!-- end loader -->
     <!-- END LOADER -->
-   
+
     <!-- Start header -->
     <header class="top-header">
         <nav class="navbar header-nav navbar-expand-lg">
@@ -88,21 +87,21 @@ session_start();
     
     <!-- section -->
 	<section class="inner_banner">
-	  <div class="container">
-	      <div class="row">
-		      <div class="col-12">
-			    <div class="full">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="full">
                         <div class="heading_main text_align_center">
 						
                         </div>
-					  </div>
-			  </div>
-		  </div>
-	  </div>
+					</div>
+                </div>
+            </div>
+        </div>
 	</section>
 	
 	<!-- end section -->
-   
+
 	<!-- section -->
 	<div class="section layout_padding padding_bottom-0">
         <div class="container">
@@ -110,7 +109,7 @@ session_start();
                 <div class="col-md-12">
                     <div class="full">
                         <div class="heading_main text_align_center">
-						   <h2><span>Cursos</span></h2>
+                            <h2><span>Cursos</span></h2>
                         </div>
 					</div>
                 </div>

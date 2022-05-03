@@ -17,8 +17,8 @@ include_once ("validar_sesion.php");
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Site Metas -->
-    <title>Centro de Tecnologías en Cómputo y Comunicación</title>
-    <link rel="shortcut icon" href="images/unam-icon.png">
+    <title>AUDITORIAS USOAP</title>
+    <link rel="shortcut icon" href="images/afac_logo.png">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -39,8 +39,8 @@ include_once ("validar_sesion.php");
     <link rel="stylesheet" href="css/custom.css" />
 
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -58,7 +58,7 @@ include_once ("validar_sesion.php");
     <header class="top-header">
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="images/logo-unam.png" alt="image"></a>
+                <a class="navbar-brand" href="index.html"><img src="images/afac_logo.png" alt="image"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
@@ -66,10 +66,7 @@ include_once ("validar_sesion.php");
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                    <li><a class="nav-link" href="sabermas1.html">Saber más</a></li>
-                        <li><a class="nav-link" href="cursos1.php">Cursos</a></li>
-                        <li><a class="nav-link" href="tramite1.html">Inscripción</a></li>
-						<li><a class="nav-link" href="contacto1.html">Contacto</a></li>
+                    <li><a class="nav-link" href="iniciopq.php">Inicio</a></li>
 						<li><a class="nav-link" href="cerrar_sesion.php">Cerrar Sesion</a></li>
                     </ul>
                 </div>
@@ -91,7 +88,7 @@ include_once ("validar_sesion.php");
             <div class="row">
                 <div class="col-12">
                     <div class="full">
-                        <h3>Solicitud de Inscripción</h3>
+                        <h3>Auditorías USUAP</h3>
                     </div>
                 </div>
             </div>
@@ -103,10 +100,7 @@ include_once ("validar_sesion.php");
     <!-- section -->
     <div class="row">
         <div class="full center mt-5">
-            <h4>86132000 Concepto: Servicios de Educación y Capacitación en Administración</h4>
-        </div>
-        <div class="full center">
-            <h4>Centro de Cómputo N°. UR: 5130 </h4>
+            <h4>CMA AUDITORIA USOAP "ATENCIÓN DE PQ'S OACI</h4>
         </div>
     </div>
     <!-- end section -->
@@ -115,21 +109,21 @@ include_once ("validar_sesion.php");
         <div class="container">
             <div class="row">
                 <!-- <div class="col-lg-8 col-md-8 col-sm-12">
-				    <div class="full float-right_img">
+                    <div class="full float-right_img">
                         <img src="images/img10.png" alt="#">
                     </div>
-                 </div> -->
+                </div> -->
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="contact_form">
                         <form action="inscripcion.php" METHOD="POST">
                             <fieldset>
-                                <h1>Datos del Curso</h1>
+                                <h1>Pregunta de protocolo USUAP</h1>
 
                                 <!-- <div class="">
                                     <input required type="text" placeholder=" Nombre del Curso" id="nombre_curso" name="nombre_curso" style="border: 2px dotted #999"/>
                                 </div> -->
 
-                                <h3 style="color: #095a83">Nombre del Curso:</h3>
+                                <h3 style="color: #095a83">Número de PQ:</h3>
 
                                 <div>
                                     <select required style="width: 100%;
@@ -140,17 +134,17 @@ include_once ("validar_sesion.php");
                                     font-size: 17px;
                                     color: #676767;
                                     padding: 0px 25px;
-                                    border: 2px dotted #999;" id="nombre_curso" name="nombre_curso">
+                                    border: 2px dotted #999;" id="num_pq" name="num_pq">
                                         <option selected></option>
                                         <?php
                                         require_once "conexion.php";
 
-                                        $sql = "SELECT DISTINCT nombre from cursos";
+                                        $sql = "SELECT DISTINCT num_pq from pqs";
                                         $result = mysqli_query($conexion, $sql);
                                         while ($mostrar = mysqli_fetch_array($result)) {
                                         ?>
 
-                                            <option> <?php echo $mostrar['nombre']  ?> </option>
+                                            <option> <?php echo $mostrar['num_pq']  ?> </option>
                                         <?php
                                         }
                                         ?>
@@ -158,7 +152,7 @@ include_once ("validar_sesion.php");
                                 </div>
 
 
-                                <h3 style="color: #095a83">Fecha de Inicio:</h3>
+                                <h3 style="color: #095a83">Área de auditoría:</h3>
 
                                 <div class="">
                                     <!-- <select  required style="width: 100%;
@@ -188,17 +182,17 @@ include_once ("validar_sesion.php");
                                     font-size: 17px;
                                     color: #676767;
                                     padding: 0px 25px;
-                                    border: 2px dotted #999;" id="fecha_inicio" name="fecha_inicio">
+                                    border: 2px dotted #999;" id="area" name="area">
                                         <option selected></option>
                                         <?php
                                         require_once "conexion.php";
 
-                                        $sql = "SELECT DISTINCT fecha_inicio from cursos";
+                                        $sql = "SELECT DISTINCT areas from areas";
                                         $result = mysqli_query($conexion, $sql);
                                         while ($mostrar = mysqli_fetch_array($result)) {
                                         ?>
 
-                                            <option> <?php echo $mostrar['fecha_inicio']  ?> </option>
+                                            <option> <?php echo $mostrar['areas']  ?> </option>
                                         <?php
                                         }
                                         ?>
@@ -206,7 +200,7 @@ include_once ("validar_sesion.php");
                                 </div>
 
                                 <div class="">
-                                    <h3 style="color: #095a83">Grupo:</h3>
+                                    <h3 style="color: #095a83">Elemento crítico:</h3>
                                     <!-- <input type="phn" placeholder="Grupo" id="grupo"  name="grupo"class="col-lg-6" style="border: 2px dotted #999" /> -->
                                     <select required style="width: 100%;
                                     margin: 15px 0;
@@ -216,17 +210,17 @@ include_once ("validar_sesion.php");
                                     font-size: 17px;
                                     color: #676767;
                                     padding: 0px 25px;
-                                    border: 2px dotted #999;" id="grupo" name="grupo">
+                                    border: 2px dotted #999;" id="elemento" name="elemento">
                                         <option selected></option>
                                         <?php
                                         require_once "conexion.php";
 
-                                        $sql = "SELECT DISTINCT grupo from cursos";
+                                        $sql = "SELECT DISTINCT elemento from elemento";
                                         $result = mysqli_query($conexion, $sql);
                                         while ($mostrar = mysqli_fetch_array($result)) {
                                         ?>
 
-                                            <option> <?php echo $mostrar['grupo']  ?> </option>
+                                            <option> <?php echo $mostrar['elemento']  ?> </option>
                                         <?php
                                         }
                                         ?>
@@ -234,119 +228,67 @@ include_once ("validar_sesion.php");
                                     <!-- <input type="phn" placeholder="Sala" id="sala" name="sala" class="col-lg-6" style="border: 2px dotted #999" /> -->
                                 </div>
                                 <div class="">
-                                    <h3 style="color: #095a83">Aula:</h3>
-                                    <select required style="width: 100%;
-                                    margin: 15px 0;
-                                    min-height: 60px;
-                                    border: none;
-                                    background: #fff;
-                                    font-size: 17px;
-                                    color: #676767;
-                                    padding: 0px 25px;
-                                    border: 2px dotted #999;" id="sala" name="sala">
-                                        <option selected></option>
-                                        <?php
-                                        require_once "conexion.php";
+                                    <h3 style="color: #095a83">Pregunta de protocolo (PQ):</h3>
+                                    <input readonly type="text" value="<?php
+                                                                require_once 'conexion.php';
+                                                                $usuario = $_SESSION['usuario'];
+                                                                /* $usuario = 'janet-8a@gmail.com'; */
+                                                                $sql = "SELECT DISTINCT * FROM alumnos WHERE correo='$usuario'";
+                                                                $result = mysqli_query($conexion, $sql);
+                                                                while ($mostrar = mysqli_fetch_array($result)) {
 
-                                        $sql = "SELECT DISTINCT sala from cursos";
-                                        $result = mysqli_query($conexion, $sql);
-                                        while ($mostrar = mysqli_fetch_array($result)) {
-                                        ?>
+                                                                ?> <?php echo $mostrar['correo']  ?> 
+                                                                <?php
+                                                                    }
+                                                                ?> "id="correo_alumno" name="correo_alumno">
 
-                                            <option> <?php echo $mostrar['sala']  ?> </option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
+                                                            <!--Falta hacer las conexiones con los usuarios y los permisos de cada una.-->
+
                                 </div>
 
                                 <div class="">
                                     <!-- <input type="text" placeholder=" Profesor" id="profesor" name="profesor" style="border: 2px dotted #999"/> -->
                                     <div class="">
-                                        <h3 style="color: #095a83">Nombre y Matricula del Profesor:</h3>
-                                        <select required style="width: 100%;
-                                    margin: 15px 0;
-                                    min-height: 60px;
-                                    border: none;
-                                    background: #fff;
-                                    font-size: 17px;
-                                    color: #676767;
-                                    padding: 0px 25px;
-                                    border: 2px dotted #999;" id="profesor" name="profesor">
-                                            <option selected></option>
-                                            <?php
-                                            require_once "conexion.php";
-                                            $resultado = "SELECT * from profesores";
+                                        <h3 style="color: #095a83">Orientación para el examen de pruebas:</h3>
+                                        <input readonly type="text" value="<?php
+                                                                require_once 'conexion.php';
+                                                                $usuario = $_SESSION['usuario'];
+                                                                /* $usuario = 'janet-8a@gmail.com'; */
+                                                                $sql = "SELECT DISTINCT * FROM alumnos WHERE correo='$usuario'";
+                                                                $result = mysqli_query($conexion, $sql);
+                                                                while ($mostrar = mysqli_fetch_array($result)) {
 
-                                            /* $sql="SELECT DISTINCT matricula_profesor from cursos"; */
-                                            $result = mysqli_query($conexion, $resultado);
-                                            while ($mostrar = mysqli_fetch_array($result)) {
-                                            ?>
+                                                                ?> <?php echo $mostrar['correo']  ?> 
+                                                                <?php
+                                                                    }
+                                                                ?> "id="correo_alumno" name="correo_alumno">
 
-                                                <option> <?php echo $mostrar['matricula_profesor'] . ' - ' . $mostrar['nombre']  ?> </option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
+                                                            <!--Falta hacer las conexiones con los usuarios y los permisos de cada una.-->
                                     </div>
                                 </div>
 
                                 <!-- <input type="number" placeholder="Costo" id="costo" name="costo" class="col-lg-6" style="border: 2px dotted #999" />
                                     <input type="time" placeholder="Horario" id="horario" name="horario" class="col-lg-6" style="border: 2px dotted #999" /> -->
-                                <h3 style="color: #095a83">Costo: </h3>
+                                <h3 style="color: #095a83">Documentos de referencia: </h3>
 
                                 <div>
-                                    <select required style="width: 100%;
-                                    margin: 15px 0;
-                                    min-height: 60px;
-                                    border: none;
-                                    background: #fff;
-                                    font-size: 17px;
-                                    color: #676767;
-                                    padding: 0px 25px;
-                                    border: 2px dotted #999;" id="costo" name="costo">
-                                        <option selected></option>
-                                        <?php
-                                        require_once "conexion.php";
+                                <input readonly type="text" value="<?php
+                                                                require_once 'conexion.php';
+                                                                $usuario = $_SESSION['usuario'];
+                                                                /* $usuario = 'janet-8a@gmail.com'; */
+                                                                $sql = "SELECT DISTINCT * FROM alumnos WHERE correo='$usuario'";
+                                                                $result = mysqli_query($conexion, $sql);
+                                                                while ($mostrar = mysqli_fetch_array($result)) {
 
-                                        $sql = "SELECT DISTINCT costo from cursos";
-                                        $result = mysqli_query($conexion, $sql);
-                                        while ($mostrar = mysqli_fetch_array($result)) {
-                                        ?>
+                                                                ?> <?php echo $mostrar['correo']  ?> 
+                                                                <?php
+                                                                    }
+                                                                ?> "id="correo_alumno" name="correo_alumno">
 
-                                            <option> <?php echo $mostrar['costo']  ?> </option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
+                                                            <!--Falta hacer las conexiones con los usuarios y los permisos de cada una.-->
                                 </div>
-                                <h3 style="color: #095a83">Horario:</h3>
 
-                                <div>
-                                    <select required style="width: 100%;
-                                    margin: 15px 0;
-                                    min-height: 60px;
-                                    border: none;
-                                    background: #fff;
-                                    font-size: 17px;
-                                    color: #676767;
-                                    padding: 0px 25px;
-                                    border: 2px dotted #999;" id="horario" name="horario">
-                                        <option selected></option>
-                                        <?php
-                                        require_once "conexion.php";
-
-                                        $sql = "SELECT DISTINCT * from cursos";
-                                        $result = mysqli_query($conexion, $sql);
-                                        while ($mostrar = mysqli_fetch_array($result)) {
-                                        ?>
-
-                                            <option> <?php echo $mostrar['dia'] . ' - de - ' . $mostrar['hora_inicio'] . ' _a_ ' . $mostrar['hora_fin'] ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
+                                
 
 
                             </fieldset>
@@ -477,74 +419,14 @@ include_once ("validar_sesion.php");
         </div>
     </div>
     <!-- end section -->
-    <!-- Start Footer -->
-    <footer class="footer-box">
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="footer_blog">
-                        <h3>Aviso de Privacidad</h3>
-                        <div class="full white_fonts">
-                            <p>
-                                Esta página puede ser reproducida con fines no lucrativos,
-                                siempre y cuando no se mutile, se cite la fuente completa
-                                y su dirección electrónica. De otra forma requiere permiso previo
-                                por escrito de la institución. </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="footer_blog footer_menu white_fonts">
-                        <h3>Menú Rapido</h3>
-                        <ul>
-                            <li><a href="#">> Cursos</a></li>
-                            <li><a href="#">> Temarios</a></li>
-                            <li><a href="#">> Tramites</a></li>
-                            <li><a href="#">> Eventos</a></li>
-                            <li><a href="contact.html">> Contacto</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="footer_blog full white_fonts">
-                        <h3>Noticias</h3>
-                        <p>Suscríbete para recibir noticias de nuevos cursos de programación</p>
-                        <div class="newsletter_form">
-                            <form action="index.html">
-                                <input type="email" placeholder="Tu correo electrónico" name="#" required />
-                                <button>ENVIAR</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="footer_blog full white_fonts">
-                        <h3>Contacto</h3>
-                        <ul class="full">
-                            <li><img src="images/i5.png" alt="#" /><a href="https://goo.gl/maps/RiEoGue7NJxYxpMN6" target="_blank"><span class="icon"></span><span>Centro de Cómputo primer piso, Campo
-                                        Cuatro</span></a></li>
-                            <li><img src="images/i6.png"><span>cursos.computo@cuautitlan.unam.mx</span></li>
-                            <li><img src="images/i7.png"><span>56-23-18-79</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </footer>
+    
     <!-- End Footer -->
 
     <div class="footer_bottom">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p class="crp">© Copyrights Facultad de Estudios Superiores Cuautitlán 2021.</p>
+                    <p class="crp">©Auditorías USUAP.</p>
                 </div>
             </div>
         </div>

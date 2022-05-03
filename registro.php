@@ -2,22 +2,20 @@
 require_once "conexion.php";
 
 $nombre = $_POST['nombre'];
-$telefono = $_POST['telefono'];
-$email = $_POST['email'];
+$empleado = $_POST['empleado'];
 $contraseña = $_POST['contraseña'];
 $apellido = $_POST['apellido'];
-$grado_academico = $_POST['grado_academico'];
 
 // se tiene que ir el insert a la tabla alumnos
 /* $query = "INSERT INTO usuarios (nombre,telefono,email,contraseña) VALUES ('$nombre','$telefono','$email','$contraseña')"; */
-$query = "INSERT INTO alumnos (nombre,celular,correo,contraseña,apellido,grado_academico) VALUES ('$nombre','$telefono','$email','$contraseña','$apellido','$grado_academico')";
+$query = "INSERT INTO alumnos (nombre,empleado,contraseña,apellido) VALUES ('$nombre','$empleado','$contraseña','$apellido')";
 //verificar que el correo no se repita en la BD
-$verificar_email= mysqli_query($conexion, "SELECT * FROM usuarios WHERE email='$email' ");
+$verificar_empleado= mysqli_query($conexion, "SELECT * FROM alumnos WHERE empleado='$empleado'");
 
-if(mysqli_num_rows($verificar_email) > 0){
+if(mysqli_num_rows($verificar_empleado) > 0){
     echo '
     <script> 
-      alert("Este correo ya esta registrado");
+      alert("Este empleado ya está registrado");
       window.location = "login.html";
     </script>
     ';
@@ -29,7 +27,7 @@ $resultado = mysqli_query($conexion, $query);
 if($resultado){
     echo '
     <script> 
-      alert("Usuario registrado exitosamente!");
+      alert("Empleado registrado exitosamente!");
       window.location = "login.html";
     </script>
     ';

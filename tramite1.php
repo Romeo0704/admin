@@ -16,7 +16,7 @@ include_once ("validar_sesion.php");
 
     <!-- Site Metas -->
     <title>Centro de Tecnologías en Cómputo y Comunicación</title>
-	  <link rel="shortcut icon" href="images/unam-icon.png">
+    <link rel="shortcut icon" href="images/unam-icon.png">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -53,8 +53,8 @@ include_once ("validar_sesion.php");
     </div>
     <!-- END LOADER -->
 
-     <!-- Start header -->
-	 <header class="top-header">
+    <!-- Start header -->
+    <header class="top-header">
         <nav class="navbar header-nav navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="images/logo-unam.png" alt="image"></a>
@@ -99,15 +99,15 @@ include_once ("validar_sesion.php");
 	</section>
 	
 	<!-- end section -->
-   
+
 	<!-- section -->
-	 <div class="section layout_padding padding_bottom-0">
+	<div class="section layout_padding padding_bottom-0">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="full">
                         <div class="heading_main text_align_center">
-						               <h2><span>Trámites</span></h2>
+                          <h2><span>Trámites</span></h2>
                         </div>
 					          </div>
                 </div>
