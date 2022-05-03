@@ -12,7 +12,7 @@ $validar_login = mysqli_query($conexion, "SELECT * FROM administrador WHERE usua
 if(mysqli_num_rows($validar_login) > 0){
     $_SESSION['usuario'] = $usuario;
 
-    header('location: cursos.php');
+    header('location: pqs.php');
     mysqli_close($conexion);
 
 }else{

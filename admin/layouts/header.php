@@ -6,18 +6,6 @@ include_once ("validar_sesion1.php");
 ?>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Inicio</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Datos</a>
-      </li>
-    </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -145,8 +133,8 @@ include_once ("validar_sesion1.php");
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="./layouts/header.php" class="brand-link">
-      <img src="../images/afac_horizontal.jpg" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a class="brand-link">
+      <img src="../images/afac_horizontal.jpg" class="brand-image img-circle elevation-3" style="opacity: 1">
       <span class="brand-text font-weight-light">Auditorías USUAP</span>
     </a>
 
@@ -158,12 +146,12 @@ include_once ("validar_sesion1.php");
           <img src="usuario.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrador</a>
+          <a class="d-block">Administrador</a>
         </div>
       </div>
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
+      <!--<div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -172,15 +160,15 @@ include_once ("validar_sesion1.php");
             </button>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="./cursos.php" class="nav-link active">
+            <a href="./pqs.php" class="nav-link">
               <i class="nav-icon fa fa-home"></i>
               <p>
                 Inicio
@@ -199,7 +187,7 @@ include_once ("validar_sesion1.php");
             </a>
           </li>
           <li class="nav-item">
-            <a href="./cursos.php" class="nav-link">
+            <a href="./pqs.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Altas PQ
@@ -218,33 +206,17 @@ include_once ("validar_sesion1.php");
           </li>
           <li class="nav-item">
             <a href="./elemento.php" class="nav-link">
-              <i class="nav-icon fa fa-table"></i>
+              <i class="nav-icon fa fa-users"></i>
               <p>
-                Elemento crítico
+                Usuarios
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
           </li>
 
 
-          <li class="nav-header">EXTRAS</li>
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendario
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Galeria
-              </p>
-            </a>
-          </li>
+          <li class="nav-header">SESIÓN</li>
+          
           <li class="nav-item">
             <a href="../cerrar_sesion.php" class="nav-link">
               <i class="nav-icon fa fa-times"></i>
@@ -254,7 +226,7 @@ include_once ("validar_sesion1.php");
               </p>
             </a>
           </li>
-         
+        
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
