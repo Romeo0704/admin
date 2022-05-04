@@ -148,7 +148,9 @@ include_once ("validar_sesion.php");
                                     ?>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <button type="submit" class="btn btn-success float-right">Buscar</button>
+                            <br>
+
                         </form>
                     </div>
                 </div>
@@ -331,6 +333,9 @@ include_once ("validar_sesion.php");
                                 </div>
                             </div>
                         </form>
+                        <br>
+                        <button type="submit" class="btn btn-warning float-right">Imprimir formato</button>
+                        <br><br>
                     </div>
                 </div>
             </div>
