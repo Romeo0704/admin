@@ -122,35 +122,64 @@ include_once ("validar_sesion.php");
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
                         <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Número de PQ</label>
-                                <input type="text" class="form-control" id="num_pq" placeholder="Ingrese número de PQ">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="">Número de PQ (Seleccione número de PQ)</label>
+                                    <select name="pqs" id="pqs" class="form-control" required>
+                                        <?php
+                                            $res= $conexion->query("select * from  pqs");
+                                            while($fila=mysqli_fetch_array($res)){
+                                                echo '<option value="'.$fila['num_pq'].'">'.$fila['num_pq'].'</option>';
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="">Área de auditoría</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                </div>
+                                <div class="col">
+                                    <label for="">Elemento crítico</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Área de auditoría</label>
-                                <select name="area" id="area" class="form-control" required>
-                                    <?php
-                                        $res= $conexion->query("select * from  areas");
-                                        while($fila=mysqli_fetch_array($res)){
-                                            echo '<option value="'.$fila['areas'].'">'.$fila['areas'].'</option>';
-                                        }
-                                    ?>
-                                </select>
+                            <br>
+                            <div class="row col">
+                                <div class="col">
+                                    <label for="">Evaluación de Estatus Actual por el SSP:</label> <br><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="">Sin contestar</label><br><br>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                        </div>
+                                        <div class="col">
+                                            <label for="">Satisfactoria</label><br><br>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                        </div>
+                                        <div class="col">
+                                            <label for="">No satisfactoria</label><br><br>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                        </div>
+                                        <div class="col">
+                                            <label for="">No aplica</label><br><br>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                        </div>
+                                        <div class="col">
+                                            <div class="col">
+                                                <label for="">SSC</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                            </div>
+                                            <div class="col">
+                                                <label for="">MIR</label>
+                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Elemento crítico</label>
-                                <select name="elemento" id="elemento" class="form-control" required>
-                                    <?php
-                                        $res= $conexion->query("select * from  elemento");
-                                        while($fila=mysqli_fetch_array($res)){
-                                            echo '<option value="'.$fila['elemento'].'">'.$fila['elemento'].'</option>';
-                                        }
-                                    ?>
-                                </select>
-                            </div>
+                            <br>
                             <button type="submit" class="btn btn-success float-right">Buscar</button>
                             <br>
-
                         </form>
                     </div>
                 </div>
@@ -201,11 +230,11 @@ include_once ("validar_sesion.php");
                             <div class="row">
                                 <div class="col">
                                     <label for="">Fecha de inicio de atención a la PQ</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="date" class="form-control" placeholder="">
                                 </div>
                                 <div class="col">
                                     <label for="">Fecha de término de la AE</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="date" class="form-control" placeholder="">
                                 </div>
                                 <div class="col">
                                     <label for="">Porcentaje total actual de la PQ</label>
@@ -334,7 +363,7 @@ include_once ("validar_sesion.php");
                             </div>
                         </form>
                         <br>
-                        <button type="submit" class="btn btn-warning float-right">Imprimir formato</button>
+                        <button type="submit" class="btn btn-warning float-right" href="formato.php">Imprimir formato</button>
                         <br><br>
                     </div>
                 </div>
