@@ -80,12 +80,12 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <td>Id</td>
                         <td>Número de PQ</td>
                         <td>Área de auditoría</td>
                         <td>Elemento critico</td>
                         <td>Pregunta de protócolo (PQ)</td>
                         <td>Orientación para el examen de pruebas</td>
+                        <td>Incisos</td>
                         <td>Documentos de referencia</td>
                         <td>Editar</td>
                         <td>Eliminar</td>
@@ -96,12 +96,12 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                             while($fila= mysqli_fetch_array($resultado)){
                           ?>
                       <tr>
-                        <td><?php echo $fila['id_pq'];?></td>
                         <td><?php echo $fila['num_pq'];?></td>
                         <td><?php echo $fila['area'];?></td>
                         <td><?php echo $fila['elemento'];?></td>
                         <td><?php echo $fila['pregunta'];?></td>
                         <td><?php echo $fila['orientacion'];?></td>
+                        <td><?php echo $fila['inciso'];?></td>
                         <td><?php echo $fila['documentos'];?></td>
 
                         <td><button class="btn btn-success btnEditar" 
@@ -112,6 +112,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                         data-elemento="<?php echo $fila['elemento'];?>"
                         data-pregunta="<?php echo $fila['pregunta'];?>"
                         data-orientacion="<?php echo $fila['orientacion'];?>"
+                        data-inciso="<?php echo $fila['inciso'];?>"
                         data-documentos="<?php echo $fila['documentos'];?>"
                         data-toggle="modal" data-target="#modalEditar">
                         <i class="fa fa-edit"></i></button></td>
@@ -149,14 +150,22 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
       <div class="modal-body">
       <div class="modal-body">
         <div class="form-group">
-          <label for="id_pq" >Id PQ</label> 
-          <input type="text" name="id_pq" placeholder="Id PQ" id="id_pq" class="form-control" required> 
-        </div>
-        <div class="form-group">
           <label for="num_pq" >Número de PQ</label> 
-          <input type="text" name="num_pq" placeholder="PQ" id="num_pq" class="form-control" required> 
+          <select name="num_pq" onchange="pqsllenado()" id="num_pq" class="form-control" required>
+          <option>Número de PQ</option>
+          <?php
+              $res= $conexion->query("select * from  pregunta");
+              while($fila=mysqli_fetch_array($res)){
+                echo '<option value="'.$fila['id_pregunta'].'">'.$fila['id_pregunta'].'</option>';
+              }
+            ?>
+          </select>
         </div>
-        <!--<div class="row">
+        <!--<div class="form-group">
+          <label for="num_pq" >Número de PQ</label> 
+          <input type="text" name="num_pq" onchange="pqsllenado()" placeholder="PQ" id="num_pq" class="form-control" required> 
+        </div>
+        <div class="row">
         <div class="form-group col-6">
           <label for="costo" >Costo</label> 
           <input type="number" name="costo" placeholder="costo" id="costo" class="form-control" required> 
@@ -164,6 +173,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
         <div class="form-group">
           <label for="area" >Área de auditoría</label> 
           <select name="area" id="area" class="form-control" required>
+          <option>Área de auditoría</option>
             <?php
               $res= $conexion->query("select * from  areas");
               while($fila=mysqli_fetch_array($res)){
@@ -175,6 +185,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
         <div class="form-group">
           <label for="elemento" >Elemento critico</label> 
           <select name="elemento" id="elemento" class="form-control" required>
+          <option>Elemento critico</option>
             <?php
               $res= $conexion->query("select * from  elemento");
               while($fila=mysqli_fetch_array($res)){
@@ -190,6 +201,10 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
         <div class="form-group">
           <label for="orientacion" >Orientación para el examen de pruebas</label> 
           <input type="text" name="orientacion" placeholder="Orientación para el examen de pruebas" id="orientacion" class="form-control" required> 
+        </div>
+        <div class="form-group">
+          <label for="inciso" >Inciso</label> 
+          <input type="text" name="inciso" placeholder="Orientación para el examen de pruebas" id="inciso" class="form-control" required> 
         </div>
         <div class="form-group">
           <label for="documentos" >Documentos de referencia</label> 
@@ -246,10 +261,6 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
       <div class="modal-body">
         <input type="hidden" id="idEdit" name="id" class="form-control">
         <div class="form-group">
-          <label for="id_pq" >ID de PQ</label> 
-          <input type="text" name="id_pq" placeholder="ID de PQ" id="id_pq1" readonly="readonly" class="form-control" required> 
-        </div>
-        <div class="form-group">
           <label for="num_pq" >Número de PQ</label> 
           <input type="text" name="num_pq" placeholder="Número de PQ" id="num_pq1" class="form-control" required> 
         </div>
@@ -284,6 +295,10 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
           <input type="text" name="orientacion" placeholder="orientacion" id="orientacion1" class="form-control" required> 
         </div>
         <div class="form-group">
+          <label for="inciso" >Inciso</label> 
+          <input type="text" name="inciso" placeholder="Inciso" id="inciso1" class="form-control" required> 
+        </div>
+        <div class="form-group">
           <label for="documentos" >Documentos de referencia</label> 
           <input type="text" name="documentos" placeholder="documentos" id="documentos1" class="form-control" required> 
         </div>
@@ -307,53 +322,86 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script>
-$(document).ready(function(){
-  var idEliminar= -1;
-  var idEditar= -1;
-  var fila;
-  $(".btnEliminar").click(function(){
-    idEliminar=$(this).data('id');
-    fila=$(this).parent('td').parent('tr');
-  });
-  $(".eliminar").click(function(){
-    $.ajax({
-      url: 'eliminarpq.php',
-      method: 'POST',
-      data:{
-        id:idEliminar
-      }
-    }).done(function(res){
-      alert(res);
-      $(fila).fadeOut(1000);
+  $(document).ready(function(){
+    var idEliminar= -1;
+    var idEditar= -1;
+    var fila;
+    $(".btnEliminar").click(function(){
+      idEliminar=$(this).data('id');
+      fila=$(this).parent('td').parent('tr');
     });
+    $(".eliminar").click(function(){
+      $.ajax({
+        url: 'eliminarpq.php',
+        method: 'POST',
+        data:{
+          id:idEliminar
+        }
+      }).done(function(res){
+        alert(res);
+        $(fila).fadeOut(1000);
+      });
+    });
+    $(".btnEditar").click(function(){
+  
+      idEditar=$(this).data('id');
+      var id_pq=$(this).data('id_pq');
+      var num_pq=$(this).data('num_pq');
+      var area=$(this).data('area');
+      var elemento=$(this).data('elemento');
+      var pregunta=$(this).data('pregunta');
+      var orientacion=$(this).data('orientacion');
+      var inciso=$(this).data('inciso');
+      var documentos=$(this).data('documentos');
+  
+      // alert(orientacion);
+  
+  
+      $("#id_pq1").val(id_pq);
+      $("#num_pq1").val(num_pq);
+      $("#area1").val(area);
+      $("#elemento1").val(elemento);
+      $("#pregunta1").val(pregunta);
+      $("#orientacion1").val(orientacion);
+      $("#inciso1").val(inciso);
+      $("#documentos1").val(documentos);
+      $("#idEdit").val(idEditar);
+      // alert(idEditar);
+  
+  
+  
   });
-  $(".btnEditar").click(function(){
-
-    idEditar=$(this).data('id');
-    var id_pq=$(this).data('id_pq');
-    var num_pq=$(this).data('num_pq');
-    var area=$(this).data('area');
-    var elemento=$(this).data('elemento');
-    var pregunta=$(this).data('pregunta');
-    var orientacion=$(this).data('orientacion');
-    var documentos=$(this).data('documentos');
-
-    // alert(orientacion);
-
-
-    $("#id_pq1").val(id_pq);
-    $("#num_pq1").val(num_pq);
-    $("#area1").val(area);
-    $("#elemento1").val(elemento);
-    $("#pregunta1").val(pregunta);
-    $("#orientacion1").val(orientacion);
-    $("#documentos1").val(documentos);
-    $("#idEdit").val(idEditar);
-    // alert(idEditar);
-
-});
-
-});
+  
+  });
+  
+  
+  function pqsllenado(){
+    //alert("entra pqs");
+    let numeropq= document.getElementById('num_pq').value;
+  //alert(area);
+  
+  
+  $.ajax({
+          url: 'consultpqs.php',
+          type: 'POST'
+      }).done(function(respuesta) {
+          obj = JSON.parse(respuesta);
+          let res = obj.data;
+          let x = 0;
+          for (Q = 0; Q < res.length; Q++) { 
+              if (obj.data[Q].id_pregunta == numeropq){
+                //area=obj.data[Q].areas;
+                document.getElementById('area').value=obj.data[Q].areas;
+                document.getElementById('elemento').value=obj.data[Q].elemento;
+                document.getElementById('pregunta').value=obj.data[Q].pregunta;
+                document.getElementById('orientacion').value=obj.data[Q].orientacion;
+                document.getElementById('inciso').value=obj.data[Q].inciso;
+                document.getElementById('documentos').value =obj.data[Q].documento;
+  
+              }
+          }
+      });
+  }
 </script>
 
 </body>

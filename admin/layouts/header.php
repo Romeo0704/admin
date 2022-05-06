@@ -176,16 +176,6 @@ include_once ("validar_sesion1.php");
               </p>
             </a>
           </li>
-   
-          <li class="nav-item">
-            <a href="./inscripciones.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Inscripciones
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-          </li>
           <li class="nav-item">
             <a href="./pqs.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
