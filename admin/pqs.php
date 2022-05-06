@@ -161,15 +161,6 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
             ?>
           </select>
         </div>
-        <!--<div class="form-group">
-          <label for="num_pq" >Número de PQ</label> 
-          <input type="text" name="num_pq" onchange="pqsllenado()" placeholder="PQ" id="num_pq" class="form-control" required> 
-        </div>
-        <div class="row">
-        <div class="form-group col-6">
-          <label for="costo" >Costo</label> 
-          <input type="number" name="costo" placeholder="costo" id="costo" class="form-control" required> 
-        </div>-->
         <div class="form-group">
           <label for="area" >Área de auditoría</label> 
           <select name="area" id="area" class="form-control" required>
@@ -210,12 +201,6 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
           <label for="documentos" >Documentos de referencia</label> 
           <input type="text" name="documentos" placeholder="Documentos de referencia" id="documentos" class="form-control" required> 
         </div>
-
-
-        <!--<div class="form-group col-6">
-          <label for="fechainicio" >Fecha inicio</label> 
-          <input type="date" name="fechainicio" placeholder="fechainicio" id="fechainicio" class="form-control" required> 
-        </div>-->
         </div>
       </div>
       <div class="modal-footer">
@@ -320,89 +305,9 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <!-- Bootstrap 4 -->
 <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script>
-  $(document).ready(function(){
-    var idEliminar= -1;
-    var idEditar= -1;
-    var fila;
-    $(".btnEliminar").click(function(){
-      idEliminar=$(this).data('id');
-      fila=$(this).parent('td').parent('tr');
-    });
-    $(".eliminar").click(function(){
-      $.ajax({
-        url: 'eliminarpq.php',
-        method: 'POST',
-        data:{
-          id:idEliminar
-        }
-      }).done(function(res){
-        alert(res);
-        $(fila).fadeOut(1000);
-      });
-    });
-    $(".btnEditar").click(function(){
-  
-      idEditar=$(this).data('id');
-      var id_pq=$(this).data('id_pq');
-      var num_pq=$(this).data('num_pq');
-      var area=$(this).data('area');
-      var elemento=$(this).data('elemento');
-      var pregunta=$(this).data('pregunta');
-      var orientacion=$(this).data('orientacion');
-      var inciso=$(this).data('inciso');
-      var documentos=$(this).data('documentos');
-  
-      // alert(orientacion);
-  
-  
-      $("#id_pq1").val(id_pq);
-      $("#num_pq1").val(num_pq);
-      $("#area1").val(area);
-      $("#elemento1").val(elemento);
-      $("#pregunta1").val(pregunta);
-      $("#orientacion1").val(orientacion);
-      $("#inciso1").val(inciso);
-      $("#documentos1").val(documentos);
-      $("#idEdit").val(idEditar);
-      // alert(idEditar);
-  
-  
-  
-  });
-  
-  });
-  
-  
-  function pqsllenado(){
-    //alert("entra pqs");
-    let numeropq= document.getElementById('num_pq').value;
-  //alert(area);
-  
-  
-  $.ajax({
-          url: 'consultpqs.php',
-          type: 'POST'
-      }).done(function(respuesta) {
-          obj = JSON.parse(respuesta);
-          let res = obj.data;
-          let x = 0;
-          for (Q = 0; Q < res.length; Q++) { 
-              if (obj.data[Q].id_pregunta == numeropq){
-                //area=obj.data[Q].areas;
-                document.getElementById('area').value=obj.data[Q].areas;
-                document.getElementById('elemento').value=obj.data[Q].elemento;
-                document.getElementById('pregunta').value=obj.data[Q].pregunta;
-                document.getElementById('orientacion').value=obj.data[Q].orientacion;
-                document.getElementById('inciso').value=obj.data[Q].inciso;
-                document.getElementById('documentos').value =obj.data[Q].documento;
-  
-              }
-          }
-      });
-  }
-</script>
-
+<!-- Editar y Eliminar -->
+<script src="js/pqsextraer.js"></script>
+<!-- Editar y Eliminar -->
+<script src="js/pqseditar.js"></script>
 </body>
 </html>
