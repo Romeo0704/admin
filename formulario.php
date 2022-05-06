@@ -2,7 +2,7 @@
 // Mandamos llamar nuestra BD
 include 'conexion.php';
 include_once ("validar_sesion.php");
-
+$resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +106,6 @@ include_once ("validar_sesion.php");
     </div>
     <!-- end section -->
     <!-- section -->
-
     <div class="section layout_padding contact_section" style="background:#f6f6f6;">
         <div class="container">
 
@@ -121,11 +120,12 @@ include_once ("validar_sesion.php");
                 </div>
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
-                        <form>
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col">
-                                    <label for="">Número de PQ (Seleccione número de PQ)</label>
-                                    <select name="pqs" id="pqs" class="form-control" required>
+                                    <label for="num_pq">Número de PQ </label>
+                                    <select name="num_pq" onchange="formllenado()" id="num_pq" class="form-control" required>
+                                    <option>(Seleccione número de PQ)</option>
                                         <?php
                                             $res= $conexion->query("select * from  pqs");
                                             while($fila=mysqli_fetch_array($res)){
@@ -135,12 +135,12 @@ include_once ("validar_sesion.php");
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label for="">Área de auditoría</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                    <label for="area">Área de auditoría</label>
+                                    <input type="text" name="area" class="form-control" id="area" placeholder="" required>
                                 </div>
                                 <div class="col">
-                                    <label for="">Elemento crítico</label>
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                    <label for="elemento">Elemento crítico</label>
+                                    <input type="text" name="elemento" class="form-control" id="elemento" placeholder="" required>
                                 </div>
                             </div>
                             <br>
@@ -150,7 +150,7 @@ include_once ("validar_sesion.php");
                                     <div class="row">
                                         <div class="col">
                                             <label for="">Sin contestar</label><br><br>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
                                         </div>
                                         <div class="col">
                                             <label for="">Satisfactoria</label><br><br>
@@ -195,18 +195,18 @@ include_once ("validar_sesion.php");
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                     <div class="card-body">
-                        <form>
+                        <form method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Pregunta de protocolo (PQ)</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="pregunta">Pregunta de protocolo (PQ)</label>
+                                <textarea type="text" name="pregunta" class="form-control" id="pregunta" rows="3"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Orientación para el examen de pruebas</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="orientacion">Orientación para el examen de pruebas</label>
+                                <textarea type="text" name="orientacion"class="form-control" id="orientacion" rows="3"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Documentos de referencia</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="documentos">Documentos de referencia</label>
+                                <textarea type="text" name="documentos" class="form-control" id="documentos" rows="3"></textarea>
                             </div>
                         </form>
                     </div>
@@ -387,6 +387,13 @@ include_once ("validar_sesion.php");
     </div>
 
     <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
+    <!-- jQuery -->
+    <script src="./layouts/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="./layouts/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <!-- Bootstrap 4 -->
+    <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- ALL JS FILES -->
     <script src="js/jquery.min.js"></script>
@@ -402,15 +409,19 @@ include_once ("validar_sesion.php");
     <script src="js/isotope.min.js"></script>
     <script src="js/images-loded.min.js"></script>
     <script src="js/custom.js"></script>
+    <!-- Extrar los datos de la BD -->
+    <script src="form-extraer.js"></script>
+    <!-- Editar y Eliminar <script src="../js/pqseditar.js"></script> -->
+    
 
-    <script>
+   <!-- <script>
         $('#procedencia').on('change', function() {
             var desabilitado = (this.value === 'true');
             $('#grado_academico').prop('disabled', desabilitado);
             $('#carrera').prop('disabled', !desabilitado);
             $('#num_cuenta').prop('disabled', !desabilitado);
         });
-    </script>
+    </script>-->
 </body>
 </html>
 

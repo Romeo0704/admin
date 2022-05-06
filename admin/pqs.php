@@ -305,7 +305,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <!-- Bootstrap 4 -->
 <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Editar y Eliminar -->
+<!-- Extrar los datos de la BD -->
 <script src="../js/pqsextraer.js"></script>
 <!-- Editar y Eliminar -->
 <script src="../js/pqseditar.js"></script>
