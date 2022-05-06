@@ -306,8 +306,8 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 <!-- Bootstrap 4 -->
 <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Editar y Eliminar -->
-<script src="js/pqsextraer.js"></script>
+<script src="../js/pqsextraer.js"></script>
 <!-- Editar y Eliminar -->
-<script src="js/pqseditar.js"></script>
+<script src="../js/pqseditar.js"></script>
 </body>
 </html>
