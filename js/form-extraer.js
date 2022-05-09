@@ -1,5 +1,3 @@
-
-
   function formllenado(){
     //alert("entra pqs");
     let numeropq= document.getElementById('num_pq').value;
@@ -21,7 +19,6 @@
                 document.getElementById('pregunta').value=obj.data[Q].pregunta;
                 document.getElementById('orientacion').value=obj.data[Q].orientacion;
                 document.getElementById('documentos').value =obj.data[Q].documentos;
-                
               }
           }
       });

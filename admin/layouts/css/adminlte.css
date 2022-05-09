@@ -10,6 +10,21 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ .testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.testimonial-group > .row > .col-sm-4 {
+  display: inline-block;
+  float: none;
+}
+
+/* Decorations */
+.col-sm-4 { color: #fff; font-size: 48px; padding-bottom: 20px; padding-top: 18px; }
+.col-sm-4:nth-child(3n+1) { background: #c69; }
+.col-sm-4:nth-child(3n+2) { background: #9c6; }
+.col-sm-4:nth-child(3n+3) { background: #69c; }
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;

@@ -37,7 +37,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-2">Registro de Área de auditoría</h1>
+            <h1 class="m-2">Área de auditoría</h1>
           </div><!-- /.col -->
           <div class="col-sm-6 text-right">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -74,7 +74,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
               <div class="card-header">
                 <h3 class="card-title">Área de auditoría</h3>
               </div>
-              <!-- /.card-header -->
+              <!-- Muestra la tabla, con sus apartados y datos -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -109,7 +109,6 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
                          <?php } ?>
           
                     </tbody>
-               
                 </table>
               </div>
               <!-- /.card-body -->
@@ -120,7 +119,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
     </section>
     <!-- /.content -->
   </div>
-  <!-- Modal -->
+  <!-- Modal Registrar-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" >
     <div class="modal-content">

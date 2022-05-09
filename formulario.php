@@ -177,9 +177,6 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                                     </div>
                                 </div>
                             </div>
-                            <br>
-                            <button type="submit" class="btn btn-success float-right">Buscar</button>
-                            <br>
                         </form>
                     </div>
                 </div>
@@ -338,7 +335,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
                                 <div class="col">
-                                    <label for="">% </label><br><br>
+                                    <label for="">%</label><br><br>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
                             </div>
@@ -410,7 +407,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
     <script src="js/images-loded.min.js"></script>
     <script src="js/custom.js"></script>
     <!-- Extrar los datos de la BD -->
-    <script src="form-extraer.js"></script>
+    <script src="js/form-extraer.js"></script>
     <!-- Editar y Eliminar <script src="../js/pqseditar.js"></script> -->
     
 

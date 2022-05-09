@@ -150,7 +150,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
       <div class="modal-body">
       <div class="modal-body">
         <div class="form-group">
-          <label for="num_pq" >Número de PQ</label> 
+          <label for="num_pq" >Número de PQ</label>
           <select name="num_pq" onchange="pqsllenado()" id="num_pq" class="form-control" required>
           <option>Número de PQ</option>
           <?php
@@ -186,20 +186,20 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
           </select>
         </div>
         <div class="form-group">
-          <label for="pregunta" >Pregunta de protócolo (PQ)</label> 
-          <input type="text" name="pregunta" placeholder="Pregunta de protócolo" id="pregunta" class="form-control" required> 
+          <label for="pregunta" >Pregunta de protócolo (PQ)</label>
+          <textarea class="form-control" id="pregunta" rows="3" name="pregunta"></textarea>
         </div>
         <div class="form-group">
-          <label for="orientacion" >Orientación para el examen de pruebas</label> 
-          <input type="text" name="orientacion" placeholder="Orientación para el examen de pruebas" id="orientacion" class="form-control" required> 
+          <label for="orientacion" >Orientación para el examen de pruebas</label>
+          <textarea class="form-control" id="orientacion" rows="3" name="orientacion"></textarea>
         </div>
         <div class="form-group">
-          <label for="inciso" >Inciso</label> 
-          <input type="text" name="inciso" placeholder="Orientación para el examen de pruebas" id="inciso" class="form-control" required> 
+          <label for="inciso" >Inciso</label>
+          <textarea class="form-control" id="inciso" rows="3" name="inciso"></textarea>
         </div>
         <div class="form-group">
-          <label for="documentos" >Documentos de referencia</label> 
-          <input type="text" name="documentos" placeholder="Documentos de referencia" id="documentos" class="form-control" required> 
+          <label for="documentos" >Documentos de referencia</label>
+          <textarea class="form-control" id="documentos" rows="3" name="documentos"></textarea>
         </div>
         </div>
       </div>
@@ -272,20 +272,20 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
           </select>
         </div>
         <div class="form-group">
-          <label for="pregunta" >Pregunta de protócolo (PQ)</label> 
-          <input type="text" name="pregunta" placeholder="pregunta" id="pregunta1" class="form-control" required> 
+          <label for="pregunta" >Pregunta de protócolo (PQ)</label>
+          <textarea class="form-control" id="pregunta1" rows="3" name="pregunta"></textarea> 
         </div>
         <div class="form-group">
-          <label for="orientacion" >Orientación para el examen de pruebas</label> 
-          <input type="text" name="orientacion" placeholder="orientacion" id="orientacion1" class="form-control" required> 
+          <label for="orientacion" >Orientación para el examen de pruebas</label>
+          <textarea class="form-control" id="orientacion1" rows="3" name="orientacion"></textarea> 
         </div>
         <div class="form-group">
-          <label for="inciso" >Inciso</label> 
-          <input type="text" name="inciso" placeholder="Inciso" id="inciso1" class="form-control" required> 
+          <label for="inciso" >Inciso</label>
+          <textarea class="form-control" id="inciso1" rows="3" name="inciso"></textarea> 
         </div>
         <div class="form-group">
-          <label for="documentos" >Documentos de referencia</label> 
-          <input type="text" name="documentos" placeholder="documentos" id="documentos1" class="form-control" required> 
+          <label for="documentos" >Documentos de referencia</label>
+          <textarea class="form-control" id="documentos1" rows="3" name="documentos"></textarea> 
         </div>
       </div>
       <div class="modal-footer">
