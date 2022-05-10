@@ -1,12 +1,11 @@
 <?php
 require_once "../conexion.php";
 
-if(isset($_POST['id_usuario']) && isset($_POST['id_rol']) && isset($_POST['num_empleado']) && isset($_POST['id_area']) && isset($_POST['nombre']) && 
-                            isset($_POST['apellido']) && isset($_POST['contraseña'])){
+if( isset($_POST['id_rol']) && isset($_POST['num_empleado']) && isset($_POST['id_area']) 
+&& isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['contraseña'])){
   
    
     $conexion->query("update usuarios set
-                                  id_usuario='".$_POST['id_usuario']."',
                                   id_rol='".$_POST['id_rol']."',
                                   num_empleado='".$_POST['num_empleado']."',
                                   id_area='".$_POST['id_area']."',
@@ -14,7 +13,7 @@ if(isset($_POST['id_usuario']) && isset($_POST['id_rol']) && isset($_POST['num_e
                                   apellido='".$_POST['apellido']."',
                                   contraseña='".$_POST['contraseña']."'
                                   
-                                  where id_usuario=".$_POST['id_usuario']);
+                                  where id_usuario=".$_POST['id']);
                                   header("Location: usuario.php?success");                     
 }
 ?>

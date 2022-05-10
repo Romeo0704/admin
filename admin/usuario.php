@@ -106,7 +106,6 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
 
                         <td><button class="btn btn-success btnEditar" 
                         data-id="<?php echo $fila['id_usuario'];?>"
-                        data-id_usuario="<?php echo $fila['id_usuario'];?>"
                         data-id_rol="<?php echo $fila['id_rol'];?>"
                         data-num_empleado="<?php echo $fila['num_empleado'];?>"
                         data-id_area="<?php echo $fila['id_area'];?>"
@@ -247,7 +246,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
         </div>
         <div class="form-group">
               <label for="id_area" >Área asignada</label> 
-              <select name="id_area" id="id_area" class="form-control" required>
+              <select name="id_area" id="id_area1" class="form-control" required>
                 <?php
                   $res= $conexion->query("select * from  areas");
                   while($fila=mysqli_fetch_array($res)){

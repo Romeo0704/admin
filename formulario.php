@@ -360,7 +360,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                             </div>
                         </form>
                         <br>
-                        <button type="submit" class="btn btn-warning float-right" href="./formatoPDF.php">Imprimir formato</button>
+                        <button type="submit" class="btn btn-warning float-right" href="formato.php">Imprimir formato</button>
                         <br><br>
                     </div>
                 </div>

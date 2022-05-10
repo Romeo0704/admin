@@ -236,6 +236,7 @@ $(document).ready(function(){
     var nombre=$(this).data('nombre');
     $("#matricula1").val(matricula);
     $("#nombre1").val(nombre);
+    $("#idEdit").val(idEditar);
   
 });
 
