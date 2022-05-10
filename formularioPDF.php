@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 ob_start();
 
@@ -9,17 +10,18 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PDF</title>
     <link href="css/formulario.css" rel="stylesheet" type="text/css">
-    <!--Header-->
-    <div class="header">
-        <img src="images/header.png" alt="">
-    </div>
 </head>
 
 
 
 <body>
+
+    <!--Header-->
+    <div class="header">
+        <img src="images/header.png" alt="">
+    </div>
 
     <!--Se comienza con la tala para el form-->
     <table class="seccion_general">
@@ -29,7 +31,6 @@ ob_start();
             <th class="titulo" colspan="4" rowspan="2">PREGUNTA DE PROTOCOLO USOAP (PQ)</th>
             <td class="estatico"width="50" height="30">Área de auditoría</td>
             <td class="estatico"width="50" height="30">Elemento crítico</td>
-            
         </tr>
         <tr>
             <td class="dinamico" rowspan="1" width="50" height="25"></td>

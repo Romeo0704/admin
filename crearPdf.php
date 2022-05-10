@@ -5,7 +5,7 @@ require_once 'dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 
 // Introducimos HTML de prueba
-$html=file_get_contents_curl("http://localhost/admin/formulario.html");
+$html=file_get_contents_curl("http://localhost/admin/formularioPDF.html");
 
 // Instanciamos un objeto de la clase DOMPDF.
 $pdf = new DOMPDF();
@@ -34,3 +34,5 @@ function file_get_contents_curl($url) {
 	curl_close($crl);
 	return $ret;
 }
+
+?>

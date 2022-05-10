@@ -1,8 +1,8 @@
 <?php
 require_once "../conexion.php";
 
-if(isset($_POST['id_usuario']) && isset($_POST['id_rol']) && isset($_POST['num_empleado']) && isset($_POST['id_area']) 
-&& isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['contraseña'])){
+if(isset($_POST['id_usuario']) && isset($_POST['id_rol']) && isset($_POST['num_empleado']) && isset($_POST['id_area']) && isset($_POST['nombre']) && 
+                            isset($_POST['apellido']) && isset($_POST['contraseña'])){
   
    
     $conexion->query("update usuarios set
