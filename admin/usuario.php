@@ -82,7 +82,8 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
                       <tr>
                         <td>ID Usuario</td>
                         <td>ID Rol</td>
-                        <td>Número de Cuenta</td>
+                        <td>Número de empleado</td>
+                        <td>Área</td>
                         <td>Nombre</td>
                         <td>Apellido</td>
                         <td>Contraseña</td>
@@ -97,7 +98,8 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
                       <tr>
                        <td><?php echo $fila['id_usuario'];?></td>
                        <td><?php echo $fila['id_rol'];?></td>
-                       <td><?php echo $fila['num_cuenta'];?></td>
+                       <td><?php echo $fila['num_empleado'];?></td>
+                       <td><?php echo $fila['id_area'];?></td>
                        <td><?php echo $fila['nombre'];?></td>
                        <td><?php echo $fila['apellido'];?></td>
                        <td><?php echo $fila['contraseña'];?></td>
@@ -106,7 +108,8 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
                         data-id="<?php echo $fila['id_usuario'];?>"
                         data-id_usuario="<?php echo $fila['id_usuario'];?>"
                         data-id_rol="<?php echo $fila['id_rol'];?>"
-                        data-num_cuenta="<?php echo $fila['num_cuenta'];?>"
+                        data-num_empleado="<?php echo $fila['num_empleado'];?>"
+                        data-id_area="<?php echo $fila['id_area'];?>"
                         data-nombre="<?php echo $fila['nombre'];?>"
                         data-apellido="<?php echo $fila['apellido'];?>"
                         data-contraseña="<?php echo $fila['contraseña'];?>"
@@ -138,7 +141,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
     <div class="modal-content">
       <form action="./insertarusuario.php" method="POST" enctype="multipart/form-data" > 
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Dar de alta PQ</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Dar de alta usuario</h5>
           <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
@@ -161,8 +164,12 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
               </select>
             </div>
             <div class="form-group">
-              <label for="num_cuenta" >Número de Cuenta</label> 
-              <input type="text" name="num_cuenta" placeholder="Número de Cuenta" id="num_cuenta" class="form-control" required> 
+              <label for="num_cuenta" >Número de empleado</label> 
+              <input type="text" name="num_empleado" placeholder="Número de empleado" id="num_empleado" class="form-control" required> 
+            </div>
+            <div class="form-group">
+              <label for="num_cuenta" >Área asignada</label> 
+              <input type="text" name="id_area" placeholder="Área asignada" id="id_area" class="form-control" required> 
             </div>
             <div class="form-group">
               <label for="nombre" >Nombre</label> 
@@ -213,7 +220,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
     <div class="modal-content">
       <form action="./editarusuario.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEditarLabel">Actualizar PQ</h5>
+        <h5 class="modal-title" id="modalEditarLabel">Actualizar usuario</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -222,7 +229,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
         <input type="hidden" id="idEdit" name="id" class="form-control">
         <div class="form-group">
           <label for="id_usuario" >ID de Usuario</label> 
-          <input type="text" name="id_usuario" placeholder="ID de PQ" id="id_usuario1" readonly="readonly" class="form-control" required> 
+          <input type="text" name="id_usuario" placeholder="ID Usuario" id="id_usuario1" readonly="readonly" class="form-control" required> 
         </div>
         <div class="form-group">
           <label for="id_rol" >ID Rol</label> 
@@ -236,8 +243,12 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
           </select>
         </div>
         <div class="form-group">
-          <label for="num_cuenta" >Número de Cuenta</label> 
-          <input type="text" name="num_cuenta" placeholder="Número de Cuenta" id="num_cuenta1" class="form-control" required> 
+          <label for="num_cuenta" >Número de empleado</label> 
+          <input type="text" name="num_empleado" placeholder="Número de empleado" id="num_empleado1" class="form-control" required> 
+        </div>
+        <div class="form-group">
+          <label for="num_cuenta" >Área asignada</label> 
+          <input type="text" name="id_area" placeholder="Área asignada" id="id_area1" class="form-control" required> 
         </div>
         <div class="form-group">
           <label for="nombre" >Nombre</label> 
@@ -269,54 +280,8 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <!-- Bootstrap 4 -->
 <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script>
-$(document).ready(function(){
-  var idEliminar= -1;
-  var idEditar= -1;
-  var fila;
-  $(".btnEliminar").click(function(){
-    idEliminar=$(this).data('id');
-    fila=$(this).parent('td').parent('tr');
-  });
-  $(".eliminar").click(function(){
-    $.ajax({
-      url: 'eliminarusuario.php',
-      method: 'POST',
-      data:{
-        id:idEliminar
-      }
-    }).done(function(res){
-      alert(res);
-      $(fila).fadeOut(1000);
-    });
-  });
-  $(".btnEditar").click(function(){
-
-    idEditar=$(this).data('id');
-    var id_usuario=$(this).data('id_usuario');
-    var id_rol=$(this).data('id_rol');
-    var num_cuenta=$(this).data('num_cuenta');
-    var nombre=$(this).data('nombre');
-    var apellido=$(this).data('apellido');
-    var contraseña=$(this).data('contraseña');
-
-    // alert(orientacion);
-
-
-    $("#id_usuario1").val(id_usuario);
-    $("#id_rol1").val(id_rol);
-    $("#num_cuenta1").val(num_cuenta);
-    $("#nombre1").val(nombre);
-    $("#apellido1").val(apellido);
-    $("#contraseña1").val(contraseña);
-    $("#idEdit").val(idEditar);
-    // alert(idEditar);
-
-});
-
-});
-</script>
+<!--Se llama al script de conexión-->
+<script src="js/usuario.js"></script>
 
 </body>
 </html>
