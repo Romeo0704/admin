@@ -154,7 +154,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
                 <?php
                   $res= $conexion->query("select * from  rol");
                   while($fila=mysqli_fetch_array($res)){
-                    echo '<option value="'.$fila['rol'].'">'.$fila['rol'].'</option>';
+                    echo '<option value="'.$fila['id_rol'].'">'.$fila['rol'].'</option>';
                   }
                 ?>
               </select>
@@ -169,7 +169,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
                 <?php
                   $res= $conexion->query("select * from  areas");
                   while($fila=mysqli_fetch_array($res)){
-                    echo '<option value="'.$fila['areas'].'">'.$fila['areas'].'</option>';
+                    echo '<option value="'.$fila['id_area'].'">'.$fila['areas'].'</option>';
                   }
                 ?>
               </select>
@@ -236,7 +236,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
               <?php
                 $res= $conexion->query("select * from  rol");
                 while($fila=mysqli_fetch_array($res)){
-                  echo '<option value="'.$fila['rol'].'">'.$fila['rol'].'</option>';
+                  echo '<option value="'.$fila['id_rol'].'">'.$fila['rol'].'</option>';
                 }
               ?>
           </select>
@@ -246,9 +246,16 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
           <input type="text" name="num_empleado" placeholder="Número de empleado" id="num_empleado1" class="form-control" required> 
         </div>
         <div class="form-group">
-          <label for="id_area" >Área asignada</label> 
-          <input type="text" name="id_area" placeholder="Área asignada" id="id_area1" class="form-control" required> 
-        </div>
+              <label for="id_area" >Área asignada</label> 
+              <select name="id_area" id="id_area" class="form-control" required>
+                <?php
+                  $res= $conexion->query("select * from  areas");
+                  while($fila=mysqli_fetch_array($res)){
+                    echo '<option value="'.$fila['id_area'].'">'.$fila['areas'].'</option>';
+                  }
+                ?>
+              </select>
+            </div>
         <div class="form-group">
           <label for="nombre" >Nombre</label> 
           <input type="text" name="nombre" placeholder="Nombre" id="nombre1" class="form-control" required> 
@@ -280,7 +287,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
 <!-- Bootstrap 4 -->
 <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!--Se llama al script de conexión-->
-<script src="js/usuario.js"></script>
+<script src="../js/usuario.js"></script>
 
 </body>
 </html>
