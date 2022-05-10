@@ -149,10 +149,6 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
         <div class="modal-body">
           <div class="modal-body">
             <div class="form-group">
-              <label for="id_usuario" >ID Usuario</label> 
-              <input type="text" name="id_usuario" placeholder="Id Usuario" id="id_usuario" class="form-control" required> 
-            </div>
-            <div class="form-group">
               <label for="id_rol" >ID Rol</label> 
               <select name="id_rol" id="id_rol" class="form-control" required>
                 <?php
@@ -164,12 +160,19 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
               </select>
             </div>
             <div class="form-group">
-              <label for="num_cuenta" >Número de empleado</label> 
+              <label for="num_empleado" >Número de empleado</label> 
               <input type="text" name="num_empleado" placeholder="Número de empleado" id="num_empleado" class="form-control" required> 
             </div>
             <div class="form-group">
-              <label for="num_cuenta" >Área asignada</label> 
-              <input type="text" name="id_area" placeholder="Área asignada" id="id_area" class="form-control" required> 
+              <label for="id_area" >Área asignada</label> 
+              <select name="id_area" id="id_area" class="form-control" required>
+                <?php
+                  $res= $conexion->query("select * from  areas");
+                  while($fila=mysqli_fetch_array($res)){
+                    echo '<option value="'.$fila['areas'].'">'.$fila['areas'].'</option>';
+                  }
+                ?>
+              </select>
             </div>
             <div class="form-group">
               <label for="nombre" >Nombre</label> 
@@ -228,10 +231,6 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
       <div class="modal-body">
         <input type="hidden" id="idEdit" name="id" class="form-control">
         <div class="form-group">
-          <label for="id_usuario" >ID de Usuario</label> 
-          <input type="text" name="id_usuario" placeholder="ID Usuario" id="id_usuario1" readonly="readonly" class="form-control" required> 
-        </div>
-        <div class="form-group">
           <label for="id_rol" >ID Rol</label> 
           <select name="id_rol" id="id_rol1" class="form-control" required>
               <?php
@@ -243,11 +242,11 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
           </select>
         </div>
         <div class="form-group">
-          <label for="num_cuenta" >Número de empleado</label> 
+          <label for="num_empleado" >Número de empleado</label> 
           <input type="text" name="num_empleado" placeholder="Número de empleado" id="num_empleado1" class="form-control" required> 
         </div>
         <div class="form-group">
-          <label for="num_cuenta" >Área asignada</label> 
+          <label for="id_area" >Área asignada</label> 
           <input type="text" name="id_area" placeholder="Área asignada" id="id_area1" class="form-control" required> 
         </div>
         <div class="form-group">

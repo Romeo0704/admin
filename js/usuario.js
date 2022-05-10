@@ -21,17 +21,17 @@ $(document).ready(function(){
     $(".btnEditar").click(function(){
   
       idEditar=$(this).data('id');
-      var id_usuario=$(this).data('id_usuario');
       var id_rol=$(this).data('id_rol');
       var num_empleado=$(this).data('num_empleado');
+      var id_area=$(this).data('id_area');
       var nombre=$(this).data('nombre');
       var apellido=$(this).data('apellido');
       var contraseña=$(this).data('contraseña');
   
       // alert(orientacion);  
-      $("#id_usuario1").val(id_usuario);
       $("#id_rol1").val(id_rol);
       $("#num_empleado1").val(num_empleado);
+      $("#id_area1").val(id_area);
       $("#nombre1").val(nombre);
       $("#apellido1").val(apellido);
       $("#contraseña1").val(contraseña);
