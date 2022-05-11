@@ -131,10 +131,6 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="id_area" >Id Area</label> 
-          <input type="text" name="id_area" placeholder="id_area" id="id_area" class="form-control" required> 
-        </div>
-        <div class="form-group">
           <label for="areas" >Área de auditoría</label> 
           <input type="text" name="areas" placeholder="areas" id="areas" class="form-control" required> 
         </div>

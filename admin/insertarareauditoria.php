@@ -1,12 +1,12 @@
 <?php
 require_once "../conexion.php";
 
-if(isset($_POST['id_area']) && isset($_POST['areas']) ){
+if(isset($_POST['areas']) ){
 
 
-    $conexion->query("insert into areas (id_area,areas)
+    $conexion->query("insert into areas (areas)
            values (
-                  '".$_POST['id_area']."',
+                  
                   '".$_POST['areas']."'
                   
               )

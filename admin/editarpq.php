@@ -11,7 +11,7 @@ if( isset($_POST['num_pq']) && isset($_POST['area']) && isset($_POST['elemento']
                                 elemento='".$_POST['elemento']."',
                                 pregunta='".$_POST['pregunta']."',
                                 orientacion='".$_POST['orientacion']."',
-                                orientacion='".$_POST['inciso']."',
+                                inciso='".$_POST['inciso']."',
                                 documentos='".$_POST['documentos']."'
 
                                 where id_pq=".$_POST['id']);
