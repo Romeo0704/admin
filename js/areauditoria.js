@@ -22,7 +22,7 @@ $(document).ready(function(){
   
       idEditar=$(this).data('id');
       var areas=$(this).data('areas');
-      alert(idEditar);
+      //alert(idEditar);
       
   
       //alert(areas);

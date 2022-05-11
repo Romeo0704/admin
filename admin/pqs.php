@@ -106,7 +106,6 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 
                         <td><button class="btn btn-success btnEditar" 
                         data-id="<?php echo $fila['id_pq'];?>"
-                        data-id_pq="<?php echo $fila['id_pq'];?>"
                         data-num_pq="<?php echo $fila['num_pq'];?>"
                         data-area="<?php echo $fila['area'];?>"
                         data-elemento="<?php echo $fila['elemento'];?>"
