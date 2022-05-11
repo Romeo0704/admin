@@ -1,14 +1,16 @@
 <?php
 require_once "../conexion.php";
 
-if(isset($_POST['matricula']) && isset($_POST['nombre']) ){
-  
-   
+
+if( isset($_POST['idEdit']) && isset($_POST['areas']) ){
+
+    $area = $_POST['areas'];
+    $id = $_POST['idEdit'];
+
     $conexion->query("update areas set
-                                  id_area='".$_POST['matricula']."',
-                                  areas='".$_POST['nombre']."'
+                                  areas='$area'
                                   
-                                  where id_area=".$_POST['matricula']);
+                                  where id_area='$id'");
                                   header("Location: areauditoria.php?success");                     
 }
 ?>

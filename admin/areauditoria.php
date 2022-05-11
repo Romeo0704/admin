@@ -94,9 +94,8 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
                        <td><?php echo $fila['areas'];?></td>
                        
                        <td><button class="btn btn-success btnEditar"
-                       data-id="<?php echo $fila['id_area'];?>" 
-                       data-matricula="<?php echo $fila['id_area'];?>"
-                       data-nombre="<?php echo $fila['areas'];?>"
+                       data-id="<?php echo $fila['id_area'];?>"
+                       data-areas="<?php echo $fila['areas'];?>"
                        data-toggle="modal" data-target="#modalEditar">
                        <i class="fa fa-edit"></i></button></td>
           
@@ -173,7 +172,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
-      <form action="./editarareauditoria.php" method="POST" enctype="multipart/form-data" > 
+      <form action="editarareauditoria.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
         <h5 class="modal-title" id="modalEditarLabel">Actualizar datos área</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
@@ -181,14 +180,10 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
         </button>
       </div>
       <div class="modal-body">
-        <input type="hidden" id="idEdit" name="id" class="form-control">
+        <input type="hidden" id="idEdit" name="idEdit" class="form-control">
         <div class="form-group">
-          <label for="matricula" >Id Area</label> 
-          <input type="text" name="matricula" placeholder="matricula" id="matricula1" readonly="readonly" class="form-control" required> 
-        </div>
-        <div class="form-group">
-          <label for="nombre" >Área de auditoría</label> 
-          <input type="text" name="nombre" placeholder="nombre" id="nombre1" class="form-control" required> 
+          <label for="areas" >Área de auditoría</label> 
+          <input type="text" name="areas" placeholder="areas" id="areas1" class="form-control" required> 
         </div>
       </div>
       <div class="modal-footer">
@@ -209,39 +204,7 @@ $resultado = $conexion->query("SELECT * from areas")or die ($conexion->error);
 <!-- Bootstrap 4 -->
 <script src="./layouts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<script>
-$(document).ready(function(){
-  var idEliminar= -1;
-  var idEditar= -1;
-  var fila;
-  $(".btnEliminar").click(function(){
-    idEliminar=$(this).data('id');
-    fila=$(this).parent('td').parent('tr');
-  });
-  $(".eliminar").click(function(){
-    $.ajax({
-      url: 'eliminarareauditoria.php',
-      method: 'POST',
-      data:{
-        id:idEliminar
-      }
-    }).done(function(res){
-      alert(res);
-      $(fila).fadeOut(1000);
-    });
-  });
-  $(".btnEditar").click(function(){
-    idEditar=$(this).data('id');
-    var matricula=$(this).data('matricula');
-    var nombre=$(this).data('nombre');
-    $("#matricula1").val(matricula);
-    $("#nombre1").val(nombre);
-    $("#idEdit").val(idEditar);
-  
-});
-
-});
-</script>
+<script src="../js/areauditoria.js"></script>
 
 </body>
 </html>
