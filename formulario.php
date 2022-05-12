@@ -108,8 +108,9 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
     <div class="section layout_padding contact_section" style="background:#f6f6f6;">
         <div class="container">
 
+        <form action="./formulario-insertar.php" method="POST" enctype="multipart/form-data">
         <div class="accordion" id="accordionExample">
-            <form action="./formulario-insertar.php" method="POST" enctype="multipart/form-data">
+            
             
                 <div class="card">
                     <div class="card-header" id="headingOne">
@@ -121,7 +122,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                     </div>
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
-                            <form action="./formulario-insertar.php" method="POST" enctype="multipart/form-data">
+                            <form  method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col">
                                         <label for="num_pq">Número de PQ </label>
@@ -178,6 +179,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                                         </div>
                                     </div>
                                 </div>
+                                
                                 
                             </form>
                         </div>
@@ -372,9 +374,9 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             
-            </form>
-        </div>
             
+        </div>
+        </form> 
         </div>
     </div>
     <!-- end section -->
