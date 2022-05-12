@@ -97,7 +97,6 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
     </section>
 
     <!-- end section -->
-
     <!-- section -->
     <div class="row">
         <div class="full center mt-5">
@@ -110,261 +109,270 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
         <div class="container">
 
         <div class="accordion" id="accordionExample">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            SECCIÓN GENERAL.- (PARA SER LLENADO POR EL PROCESO PT-08 USOAP)
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col">
-                                    <label for="num_pq">Número de PQ </label>
-                                    <select name="num_pq" onchange="formllenado()" id="num_pq" class="form-control" required>
-                                    <option>(Seleccione número de PQ)</option>
-                                        <?php
-                                            $res= $conexion->query("select * from  pqs");
-                                            while($fila=mysqli_fetch_array($res)){
-                                                echo '<option value="'.$fila['num_pq'].'">'.$fila['num_pq'].'</option>';
-                                            }
-                                        ?>
-                                    </select>
+            <form action="./formulario-insertar.php" method="POST" enctype="multipart/form-data">
+            
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                SECCIÓN GENERAL.- (PARA SER LLENADO POR EL PROCESO PT-08 USOAP)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="./formulario-insertar.php" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="num_pq">Número de PQ </label>
+                                        <select name="num_pq" onchange="formllenado()" id="num_pq" class="form-control" required>
+                                        <option>(Seleccione número de PQ)</option>
+                                            <?php
+                                                $res= $conexion->query("select * from  pqs");
+                                                while($fila=mysqli_fetch_array($res)){
+                                                    echo '<option value="'.$fila['num_pq'].'">'.$fila['num_pq'].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="area">Área de auditoría</label>
+                                        <input type="text" name="area" class="form-control" id="area" placeholder="" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="elemento">Elemento crítico</label>
+                                        <input type="text" name="elemento" class="form-control" id="elemento" placeholder="" required>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <label for="area">Área de auditoría</label>
-                                    <input type="text" name="area" class="form-control" id="area" placeholder="" required>
-                                </div>
-                                <div class="col">
-                                    <label for="elemento">Elemento crítico</label>
-                                    <input type="text" name="elemento" class="form-control" id="elemento" placeholder="" required>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row col">
-                                <div class="col">
-                                    <label for="">Evaluación de Estatus Actual por el SSP:</label> <br><br>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="">Sin contestar</label><br><br>
-                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
-                                        </div>
-                                        <div class="col">
-                                            <label for="">Satisfactoria</label><br><br>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
-                                        </div>
-                                        <div class="col">
-                                            <label for="">No satisfactoria</label><br><br>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
-                                        </div>
-                                        <div class="col">
-                                            <label for="">No aplica</label><br><br>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
-                                        </div>
-                                        <div class="col">
+                                <br>
+                                <div class="row col">
+                                    <div class="col">
+                                        <label for="">Evaluación de Estatus Actual por el SSP:</label> <br><br>
+                                        <div class="row">
                                             <div class="col">
-                                                <label for="">SSC</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                                <label for="sin_contestar">Sin contestar</label><br><br>
+                                                <input type="text" name="sin_contestar" class="form-control" id="sin_contestar" placeholder="" disabled>
                                             </div>
                                             <div class="col">
-                                                <label for="">MIR</label>
-                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+                                                <label for="satisfactoria">Satisfactoria</label><br><br>
+                                                <input type="text" name="satisfactoria" class="form-control" id="satisfactoria" placeholder="" disabled>
+                                            </div>
+                                            <div class="col">
+                                                <label for="no_satisfactoria">No satisfactoria</label><br><br>
+                                                <input type="text" name="no_satisfactoria" class="form-control" id="no_satisfactoria" placeholder="" disabled>
+                                            </div>
+                                            <div class="col">
+                                                <label for="no_aplica">No aplica</label><br><br>
+                                                <input type="text" name="no_aplica" class="form-control" id="no_aplica" placeholder="" disabled>
+                                            </div>
+                                            <div class="col">
+                                                <div class="col">
+                                                    <label for="ssc">SSC</label>
+                                                    <input type="text" name="ssc" class="form-control" id="ssc" placeholder="" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="mir">MIR</label>
+                                                    <input type="text" name="mir" class="form-control" id="mir" placeholder="" disabled>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            SECCIÓN I.- DESCRIPCIÓN DE LA PQ Y LOS REQUISITOS DE SOLVENTACIÓN
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="pregunta">Pregunta de protocolo (PQ)</label>
-                                <textarea type="text" name="pregunta" class="form-control" id="pregunta" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="orientacion">Orientación para el examen de pruebas</label>
-                                <textarea type="text" name="orientacion"class="form-control" id="orientacion" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="documentos">Documentos de referencia</label>
-                                <textarea type="text" name="documentos" class="form-control" id="documentos" rows="3"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            SECCIÓN II.- AUTOEVALUACIÓN DE LA PQ (AE) 
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <div style='text-align:center'>
-                            Auto Evaluación AE
+                                
+                            </form>
                         </div>
-                        <form>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="">Fecha de inicio de atención a la PQ</label>
-                                    <input type="date" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Fecha de término de la AE</label>
-                                    <input type="date" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Porcentaje total actual de la PQ</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </form>
-                        <br>
-                        <p>SECCION II.I Análisis Descriptivo</p>
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Introducción. (área responsable, funciones respectivas, obligaciones)</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Descripción de Fundamentos. (resumen de las referencias OACI) </label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Evaluación de cumplimiento actual. (panorama actual referente a la PQ) <br> 
-                                    Alinear respuesta con la Orientación para el examen de pruebas.</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Intervenciones de áreas de la AFAC. (quienes y en que intervienen)</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Conclusión de cumplimiento. (total, parcial, nada)</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                        </form>
-                        <br>
-                        <p>Sección II.II Información documental para cumplimiento del examen de pruebas</p>
-                        <form>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="">Pruebas específicas del cumplimiento de la PQ</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Área / Persona Responsable</label> <br> <br>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Evidencias:</label> <br><br>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
-            </div>
+                
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                SECCIÓN I.- DESCRIPCIÓN DE LA PQ Y LOS REQUISITOS DE SOLVENTACIÓN
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="pregunta">Pregunta de protocolo (PQ)</label>
+                                    <textarea type="text" name="pregunta" class="form-control" id="pregunta" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orientacion">Orientación para el examen de pruebas</label>
+                                    <textarea type="text" name="orientacion"class="form-control" id="orientacion" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="documentos">Documentos de referencia</label>
+                                    <textarea type="text" name="documentos" class="form-control" id="documentos" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                SECCIÓN II.- AUTOEVALUACIÓN DE LA PQ (AE) 
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div style='text-align:center'>
+                                Auto Evaluación AE
+                            </div>
+                            <form>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="fecha_inicio">Fecha de inicio de atención a la PQ</label>
+                                        <input type="date" name="fecha_inicio" class="form-control" id="fecha_inicio" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="fecha_termino">Fecha de término de la AE</label>
+                                        <input type="date" name="fecha_termino" class="form-control" id="fecha_termino" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="porcentaje">Porcentaje total actual de la PQ</label>
+                                        <input type="text" name="porcentaje" class="form-control" id="porcentaje" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <p>SECCION II.I Análisis Descriptivo</p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="introduccion">Introducción. (área responsable, funciones respectivas, obligaciones)</label>
+                                    <textarea type="text" name="introduccion" class="form-control" id="introduccion" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fundamentos">Descripción de Fundamentos. (resumen de las referencias OACI) </label>
+                                    <textarea type="text" name="fundamentos" class="form-control" id="fundamentos" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cumplimiento">Evaluación de cumplimiento actual. (panorama actual referente a la PQ) <br> 
+                                        Alinear respuesta con la Orientación para el examen de pruebas.</label>
+                                    <textarea type="text" name="cumplimiento" class="form-control" id="cumplimiento" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="intervenciones">Intervenciones de áreas de la AFAC. (quienes y en que intervienen)</label>
+                                    <textarea type="text" name="intervenciones" class="form-control" id="intervenciones" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="conclusion">Conclusión de cumplimiento. (total, parcial, nada)</label>
+                                    <textarea type="conclusion" name="conclusion" class="form-control" id="conclusion" rows="3"></textarea>
+                                </div>
+                            </form>
+                            <br>
+                            <p>Sección II.II Información documental para cumplimiento del examen de pruebas</p>
+                            <form>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="puebas">Pruebas específicas del cumplimiento de la PQ</label>
+                                        <input type="text" name="puebas" class="form-control" id="puebas" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="responsable">Área / Persona Responsable</label> <br> <br>
+                                        <input type="text" name="responsable" class="form-control" id="responsable" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="evidencias">Evidencias:</label> <br><br>
+                                        <input type="text" name="evidencias" class="form-control" id="evidencias" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="card">
-                <div class="card-header" id="headingFour">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            SECCIÓN III.- PLAN DE ACCIÓN CORRECTIVO PARA LA SOLVENTACIÓN DE LA PQ (CAP)
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                    <div class="card-body">
-                    <div style='text-align:center'>
-                            Plan de Acción Correctivo (CAP)
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                SECCIÓN III.- PLAN DE ACCIÓN CORRECTIVO PARA LA SOLVENTACIÓN DE LA PQ (CAP)
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                        <div style='text-align:center'>
+                                Plan de Acción Correctivo (CAP)
+                            </div>
+                            <form>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="fecha_inicio_atencion">Fecha de inicio de atención a la PQ</label>
+                                        <input type="text" name="fecha_inicio_atencion" class="form-control" id="fecha_inicio_atencion" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="fecha_termino_cap">Fecha de término del CAP</label>
+                                        <input type="text" name="fecha_termino_cap"class="form-control" id="fecha_termino_cap"placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="porcentaje_total">Porcentaje total actual de la PQ</label>
+                                        <input type="text" name="porcentaje_total" class="form-control" id="porcentaje_total" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <form>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="actividades">Actividades</label> <br><br>
+                                        <input type="text" name="actividades" class="form-control" id="actividades" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="responsable_cap">Área / Persona Responsable</label>
+                                        <input type="text" name="responsable_cap" class="form-control" id="responsable_cap" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="fecha_inico_final">Fecha Inicial / Final </label><br><br>
+                                        <input type="text" name="fecha_inico_final" class="form-control" id="fecha_inico_final" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="producto">Producto: </label><br><br>
+                                        <input type="text" name="producto"class="form-control" id="producto" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="porcentaje_cap">%</label><br><br>
+                                        <input type="text" name="porcentaje_cap" class="form-control" id="porcentaje_cap" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            <form>
+                                <div class="form-group">
+                                    <label for="comentarios">Comentarios generales de la Subdirección de SSP:</label>
+                                    <textarea name="comentarios" class="form-control" id="comentarios" rows="3"></textarea>
+                                </div>
+                            </form>
+                            <form action="">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="fecha_subio_olf">Fecha en que se subió al OLF:  </label>
+                                        <input type="text" name="fecha_subio_olf" class="form-control" id="fecha_subio_olf" placeholder="">
+                                    </div>
+                                    <div class="col">
+                                        <label for="fecha_revision_oaci">Fecha de revisión de OACI:  </label>
+                                        <input type="text" name="fecha_revision_oaci" class="form-control" id="fecha_revision_oaci" placeholder="">
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
+                            
+                            <button type="submit" class="btn btn-warning float-right" href="./formato.php">Imprimir formato</button>
+                            <br><br>
                         </div>
-                        <form>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="">Fecha de inicio de atención a la PQ</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Fecha de término del CAP</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Porcentaje total actual de la PQ</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </form>
-                        <br>
-                        <form>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="">Actividades</label> <br><br>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Área / Persona Responsable</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Fecha Inicial / Final </label><br><br>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Producto: </label><br><br>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">%</label><br><br>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </form>
-                        <br>
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Comentarios generales de la Subdirección de SSP:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                        </form>
-                        <form action="">
-                            <div class="row">
-                                <div class="col">
-                                    <label for="">Fecha en que se subió al OLF:  </label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                                <div class="col">
-                                    <label for="">Fecha de revisión de OACI:  </label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </form>
-                        <br>
-                        <button type="submit" class="btn btn-warning float-right" href="./formatoPDF.php">Imprimir formato</button>
-                        <br><br>
                     </div>
                 </div>
-            </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            
+            </form>
         </div>
             
         </div>
@@ -408,6 +416,7 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
     <script src="js/custom.js"></script>
     <!-- Extrar los datos de la BD -->
     <script src="js/form-extraer.js"></script>
+    
     <!-- Editar y Eliminar <script src="../js/pqseditar.js"></script> -->
     
 
