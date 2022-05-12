@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 ob_start();
 
@@ -9,19 +10,18 @@ ob_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PDF</title>
     <link href="css/formulario.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
     <!--Header-->
     <div class="header">
         <img src="images/header.png" alt="">
     </div>
-</head>
 
-
-
-<body>
-
-    <!--Se comienza con la tala para el form-->
+    <main>
+        <!--Se comienza con la tala para el form-->
     <table class="seccion_general">
         <h3 class="encabezado">SECCIÓN GENERAL.- (PARA SER LLENADO POR EL PROCESO PT-08 USOAP)</h3>
         <tr>
@@ -29,7 +29,6 @@ ob_start();
             <th class="titulo" colspan="4" rowspan="2">PREGUNTA DE PROTOCOLO USOAP (PQ)</th>
             <td class="estatico"width="50" height="30">Área de auditoría</td>
             <td class="estatico"width="50" height="30">Elemento crítico</td>
-            
         </tr>
         <tr>
             <td class="dinamico" rowspan="1" width="50" height="25"></td>
@@ -214,11 +213,14 @@ ob_start();
             <td class="" width="50" height="30"> </td>
         </tr>
     </table>
+
+    </main>
+    
     
 
+    <!--Footer-->
     <div class="footer">
-        <!--Footer-->
-        <div class="footer">
+        <div>
             <img src="images/footer.png" alt="">
         </div>
     </div>
@@ -232,7 +234,7 @@ ob_start();
             $dompdf->load_html(ob_get_clean());
             // $dompdf->set_option('enable_font_subsetting', true);
             $dompdf->render();
-            $dompdf->stream("Evaluación de Nivel I", array("Attachment" => 0));
+            $dompdf->stream("Auditorías USUAP", array("Attachment" => 0));
             $pdf = $dompdf->output();
             //$filename = "";
             //file_put_contents($filename, $pdf);

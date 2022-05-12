@@ -220,7 +220,7 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
-      <form action="./editarusuario.php" method="POST" enctype="multipart/form-data" > 
+      <form action="editarusuario.php" method="POST" enctype="multipart/form-data" > 
       <div class="modal-header">
         <h5 class="modal-title" id="modalEditarLabel">Actualizar usuario</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
