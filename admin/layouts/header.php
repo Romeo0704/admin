@@ -203,6 +203,15 @@ include_once ("validar_sesion1.php");
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="../formulario.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Contestar PQ
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
 
 
           <li class="nav-header">SESIÓN</li>
