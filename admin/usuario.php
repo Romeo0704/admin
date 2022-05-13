@@ -201,13 +201,13 @@ $resultado = $conexion->query("SELECT * from usuarios")or die ($conexion->error)
   <div class="modal-dialog" role="document" >
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalEliminarLabel">Eliminar PQ</h5>
+        <h5 class="modal-title" id="modalEliminarLabel">Eliminar Usuario</h5>
         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ¿Desea eliminar esta PQ?
+        ¿Desea eliminar este Usuario?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

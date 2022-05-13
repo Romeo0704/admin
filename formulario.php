@@ -307,8 +307,8 @@ $resultado = $conexion->query("SELECT * from pqs")or die ($conexion->error);
 
                                 <div class="row">
                                     <div class="col">
-                                        <label for="puebas">Pruebas específicas del cumplimiento de la PQ</label>
-                                        <input type="text" name="puebas" class="form-control" id="puebas"
+                                        <label for="pruebas">Pruebas específicas del cumplimiento de la PQ</label>
+                                        <input type="text" name="pruebas" class="form-control" id="pruebas"
                                             placeholder="">
                                     </div>
                                     <div class="col">

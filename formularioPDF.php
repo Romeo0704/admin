@@ -3,7 +3,7 @@
 // Mandamos llamar nuestra BD
 include 'conexion.php';
 
-$sql = "SELECT * fROM formulario WHERE id_form  = '1'";
+$sql = "SELECT * fROM formulario WHERE id_form  = '2'";
 $query = mysqli_query($conexion, $sql);
 $datos = mysqli_fetch_assoc($query);
 
